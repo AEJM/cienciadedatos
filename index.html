@@ -46,6 +46,7 @@ header{background:var(--sf);border-bottom:1px solid var(--bd);padding:12px 24px;
 .srcbar input{flex:1;min-width:220px;background:var(--sf);border:1px solid var(--bd);color:var(--tx);border-radius:8px;padding:6px 10px;font-size:11.5px;outline:none;font-family:monospace;transition:border-color .18s}
 .srcbar input:focus{border-color:var(--ac)}
 .srcbar input::placeholder{color:var(--tx2);font-family:'Segoe UI',system-ui,sans-serif}
+.src-hint{font-size:10px;color:var(--tx2);white-space:nowrap}
 
 /* ── CONTROLS ── */
 .ctls{display:flex;gap:7px;align-items:center;flex-wrap:wrap;padding:7px 24px;background:var(--sf);border-bottom:1px solid var(--bd)}
@@ -70,26 +71,26 @@ header{background:var(--sf);border-bottom:1px solid var(--bd);padding:12px 24px;
 /* ── SCROLL WRAPPER ── */
 .sc{overflow:auto;padding:20px 24px 32px}
 
-/* ── MALLA ── */
+/* ── MALLA: flex de columnas, SVG absoluto encima ── */
 .malla-wrap{position:relative;width:max-content;min-width:100%}
 #arrowsvg{position:absolute;top:0;left:0;pointer-events:none;z-index:10;overflow:visible}
 .malla{display:flex;gap:0;width:max-content}
 
 /* ── COLUMN ── */
-.col{display:flex;flex-direction:column;width:195px;flex-shrink:0}
+.col{display:flex;flex-direction:column;width:186px;flex-shrink:0}
 .colhdr{text-align:center;padding-bottom:10px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx2);border-bottom:2px solid var(--bd);margin-bottom:10px;display:flex;flex-direction:column;align-items:center;gap:2px}
 .colhdr-num{font-size:20px;font-weight:800;color:var(--tx);line-height:1}
-.cards{display:flex;flex-direction:column;gap:13px;padding-right:22px}
+.cards{display:flex;flex-direction:column;gap:13px;padding-right:18px}
 
 /* ── CARD ── */
-.card{width:173px;min-height:92px;border-radius:10px;padding:9px 10px 8px;position:relative;cursor:pointer;border-top:3px solid transparent;background:var(--cbg);border-left:1px solid var(--bd);border-right:1px solid var(--bd);border-bottom:1px solid var(--bd);transition:transform .16s,box-shadow .16s,opacity .16s;user-select:none}
-.card:hover{transform:translateY(-2px scale(1.01));box-shadow:0 8px 24px rgba(0,0,0,.25)}
-.card.dim{opacity:.12}
+.card{width:168px;min-height:86px;border-radius:10px;padding:9px 10px 8px;position:relative;cursor:pointer;border-top:3px solid transparent;background:var(--cbg);border-left:1px solid var(--bd);border-right:1px solid var(--bd);border-bottom:1px solid var(--bd);transition:transform .16s,box-shadow .16s,opacity .16s;user-select:none}
+.card:hover{transform:translateY(-2px) scale(1.01);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.card.dim{opacity:.1}
 .card.hl{box-shadow:0 0 0 2.5px var(--ac),0 5px 18px rgba(0,0,0,.25)}
 .card.pre{box-shadow:0 0 0 2.5px #22c55e,0 4px 16px rgba(34,197,94,.2)}
 .card.suc{box-shadow:0 0 0 2.5px #f59e0b,0 4px 16px rgba(245,158,11,.2)}
 .ck{font-size:8.5px;font-weight:700;letter-spacing:.08em;opacity:.65;text-transform:uppercase;margin-bottom:3px}
-.cn{font-size:10.5px;font-weight:600;line-height:1.35;color:var(--cnm);height:2.7em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cn{font-size:10.5px;font-weight:600;line-height:1.35;color:var(--cnm)}
 .cf{display:flex;gap:4px;margin-top:6px}
 .pill{font-size:8.5px;font-weight:700;padding:2px 5px;border-radius:4px;background:var(--pb);color:var(--pf)}
 .pdot{position:absolute;right:6px;bottom:6px;width:6px;height:6px;border-radius:50%;background:#22c55e;opacity:.7}
@@ -106,7 +107,7 @@ header{background:var(--sf);border-bottom:1px solid var(--bd);padding:12px 24px;
 .ogc{display:flex;gap:7px;flex-wrap:wrap}
 
 /* ── LEGEND ── */
-.legend{background:var(--sf);border-top:1px solid var(--bd);padding:12px 24px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.legend{background:var(--sf);border-top:1px solid var(--bd);padding:12px 24px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
 .lt{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--tx2);margin-right:4px;white-space:nowrap}
 .li{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--tx2);white-space:nowrap}
 .ld{width:8px;height:8px;border-radius:2px;flex-shrink:0}
@@ -114,24 +115,26 @@ header{background:var(--sf);border-bottom:1px solid var(--bd);padding:12px 24px;
 /* ── PANEL ── */
 .ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;display:none;backdrop-filter:blur(3px)}
 .ov.open{display:block}
-.pn{position:fixed;right:0;top:0;bottom:0;width:340px;max-width:90vw;background:var(--sf2);border-left:1px solid var(--bd);z-index:301;padding:22px 18px;overflow-y:auto;transform:translateX(100%);transition:transform .24s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;gap:14px}
+.pn{position:fixed;right:0;top:0;bottom:0;width:320px;max-width:90vw;background:var(--sf2);border-left:1px solid var(--bd);z-index:301;padding:22px 18px;overflow-y:auto;transform:translateX(100%);transition:transform .24s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;gap:14px}
 .pn.open{transform:translateX(0)}
 .pcbar{height:4px;border-radius:4px}
 .pck{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--tx2);text-transform:uppercase}
 .pname{font-size:17px;font-weight:700;color:var(--tx);line-height:1.3}
-.psec{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tx2);margin-top:10px;margin-bottom:5px}
+.psec{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tx2);margin-bottom:5px;margin-top:10px}
 .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 .pstat{background:var(--sf);border-radius:8px;padding:9px;border:1px solid var(--bd)}
-.psn{font-size:18px;font-weight:800;color:var(--tx)}
+.psn{font-size:16px;font-weight:800;color:var(--tx)}
 .psl{font-size:9px;color:var(--tx2);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+.pdesc{background:var(--sf);border-radius:8px;padding:12px;border:1px solid var(--bd);font-size:12px;color:var(--tx2);line-height:1.5;}
+.pdesc strong{color:var(--tx);font-weight:600;}
+.pdesc .row{margin-bottom: 6px;}
 .rc{background:var(--sf);border-radius:7px;padding:8px 10px;border-left:3px solid;margin-bottom:4px;cursor:pointer;transition:background .12s}
 .rc:hover{background:var(--bg)}
 .rn{font-size:11px;font-weight:600;color:var(--tx)}
 .rk{font-size:9px;color:var(--tx2);margin-top:1px}
 .xb{position:absolute;top:12px;right:12px;background:var(--sf);border:1px solid var(--bd);color:var(--tx);width:26px;height:26px;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;transition:background .12s}
 .xb:hover{background:var(--bg)}
-.lb{display:inline-block;padding:3px 8px;border-radius:5px;font-size:10.5px;font-weight:700;margin-top:1px;width:max-content}
-.pnote{font-size:11.5px;color:var(--tx2);line-height:1.4;background:var(--sf);padding:8px 10px;border-radius:6px;border:1px dashed var(--bd);white-space:pre-line}
+.lb{display:inline-block;padding:3px 8px;border-radius:5px;font-size:10.5px;font-weight:700;margin-top:1px}
 
 /* ── LOADER / ERROR ── */
 #loader{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;z-index:999;padding:32px;text-align:center}
@@ -187,9 +190,9 @@ header{background:var(--sf);border-bottom:1px solid var(--bd);padding:12px 24px;
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13">
       <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/>
     </svg>
-    Cargar
+    Buscar / Cargar
   </button>
-  <span class="src-hint">Hoja requerida: <b>Materias</b></span>
+  <span class="src-hint">Hoja requerida: <b>Materias</b> (Incluir columna Prerrequisitos)</span>
 </div>
 
 <div class="ctls">
@@ -213,7 +216,7 @@ header{background:var(--sf);border-bottom:1px solid var(--bd);padding:12px 24px;
 
 <div class="opts" id="opts"></div>
 
-<div class="legend" id="leg"><span class="lt">Líneas Curriculares</span></div>
+<div class="legend" id="leg"><span class="lt">Áreas / Líneas Curriculares</span></div>
 
 <div class="ov" id="ov"></div>
 <div class="pn" id="pn">
@@ -246,7 +249,7 @@ function makeUrls(sheetId, sheetName){
   return [
     `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${enc}`,
     `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&sheet=${enc}`,
-    `https://corsproxy.io/?url=${encodeURIComponent(`https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&sheet=${enc}`)}`
+    `https://corsproxy.io/?url=${encodeURIComponent(`https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&sheet=${enc}`)}`,
   ];
 }
 
@@ -299,25 +302,25 @@ async function fetchSheet(sheetId, name){
    PALETA DINÁMICA DE COLORES
 ════════════════════════════════════════════ */
 const PALETTE=[
-  '#5BB974','#6CB4E4','#FB8C00','#A78BFA','#F28B82','#00ACC1',
-  '#7986CB','#FDD663','#90A4AE','#F06292','#4DB6AC','#FF8A65'
+  '#F28B82','#FB8C00','#FDD663','#81C995','#6CB4E4','#5BB974',
+  '#00ACC1','#7986CB','#A78BFA','#90A4AE','#F06292','#4DB6AC',
+  '#FF8A65','#BA68C8','#B0BEC5','#EF9A9A','#4FC3F7','#AED581',
 ];
 let colorMap={};
 let colorIdx=0;
 
 function colorFor(linea){
-  const l = linea || 'Sin Línea';
-  if(!colorMap[l]){
-    colorMap[l]=PALETTE[colorIdx%PALETTE.length];
+  if(!colorMap[linea]){
+    colorMap[linea]=PALETTE[colorIdx%PALETTE.length];
     colorIdx++;
   }
-  return colorMap[l];
+  return colorMap[linea];
 }
 
 /* ════════════════════════════════════════════
    ESTADO GLOBAL
 ════════════════════════════════════════════ */
-let MATERIAS=[], SERIACIONES=[];
+let MATERIAS=[], SERIACIONES=[], OPTATIVAS=[];
 let byKey={}, semOrder=[], semMap={}, preOf={}, sucOf={};
 let cardEls={};
 let activeFilters=new Set(), searchQ='', activeCard=null, isDark=true;
@@ -337,26 +340,10 @@ function buildLookups(){
   semOrder.forEach(s=>semMap[s]=[]);
   MATERIAS.forEach(m=>{if(semMap[m.sem])semMap[m.sem].push(m);});
 
-  // Reconstrucción inteligente de Seriaciones basadas en campo Prerrequisitos multi-valor
-  preOf={}; sucOf={};
-  SERIACIONES=[];
-
-  MATERIAS.forEach(m=>{
-    if(m.rawPrereq){
-      // Soporta separadores comas, punto y coma, o saltos de línea
-      const tokens = m.rawPrereq.split(/[\n,;]+/).map(t=>t.trim()).filter(Boolean);
-      tokens.forEach(pKey=>{
-        // Validar si el prerrequisito existe en las materias
-        if(byKey[pKey]){
-          SERIACIONES.push([pKey, m.clave]);
-          if(!preOf[m.clave])preOf[m.clave]=[];
-          preOf[m.clave].push(pKey);
-
-          if(!sucOf[pKey])sucOf[pKey]=[];
-          sucOf[pKey].push(m.clave);
-        }
-      });
-    }
+  preOf={};sucOf={};
+  SERIACIONES.forEach(([a,b])=>{
+    if(!preOf[b])preOf[b]=[];preOf[b].push(a);
+    if(!sucOf[a])sucOf[a]=[];sucOf[a].push(b);
   });
 }
 
@@ -381,23 +368,23 @@ function showError(msg){
     <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F28B82" stroke-width="2">
       <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
     </svg>
-    <p style="font-size:14px;font-weight:600;color:var(--tx)">Error de sincronización con la Malla</p>
+    <p style="font-size:14px;font-weight:600;color:var(--tx)">Error de Carga</p>
     <p style="font-size:12px;color:var(--tx2);max-width:460px">${msg}</p>
     <button onclick="location.reload()" style="margin-top:10px;padding:7px 18px;border-radius:8px;border:1px solid var(--bds);background:var(--sf2);color:var(--tx);cursor:pointer;font-size:13px">Reintentar</button>`;
 }
 
 /* ════════════════════════════════════════════
-   RENDERS METRICAS & FILTROS
+   RENDERIZADO
 ════════════════════════════════════════════ */
 function renderStats(){
-  const creds=MATERIAS.reduce((a,m)=>a+(m.cr||0),0);
+  const creds=MATERIAS.reduce((a,m)=>a+(+m.cr||5),0);
   const lins=new Set(MATERIAS.map(m=>m.linea)).size;
   document.getElementById('stats').innerHTML=`
-    <div class="stat"><div class="stn">${MATERIAS.length}</div><div class="stl">Materias</div></div>
-    <div class="stat"><div class="stn">${creds}</div><div class="stl">Créditos Totales</div></div>
+    <div class="stat"><div class="stn">${MATERIAS.filter(m=>m.sem.toLowerCase()!=='optativa').length}</div><div class="stl">Materias</div></div>
+    <div class="stat"><div class="stn">${creds}</div><div class="stl">Créditos</div></div>
     <div class="stat"><div class="stn">${semOrder.length}</div><div class="stl">Semestres</div></div>
-    <div class="stat"><div class="stn">${SERIACIONES.length}</div><div class="stl">Conexiones</div></div>
-    <div class="stat"><div class="stn">${lins}</div><div class="stl">Líneas de Especialidad</div></div>`;
+    <div class="stat"><div class="stn">${SERIACIONES.length}</div><div class="stl">Seriaciones</div></div>
+    <div class="stat"><div class="stn">${lins}</div><div class="stl">Líneas</div></div>`;
 }
 
 function renderChips(){
@@ -446,10 +433,10 @@ function mkCard(m, extraW, extraH){
   el.style.borderTopColor=col;
   el.innerHTML=`
     <div class="ck" style="color:${col}">${m.clave}</div>
-    <div class="cn" title="${m.nombre}">${m.nombre}</div>
+    <div class="cn">${m.nombre}</div>
     <div class="cf">
-      <span class="pill">${m.cr||0} CR</span>
-      <span class="pill">${m.uc||0} UC</span>
+      <span class="pill">${m.cr} CR</span>
+      <span class="pill">${m.uc} UC</span>
     </div>
     ${(preOf[m.clave]||[]).length?'<div class="pdot"></div>':''}`;
   el.onclick=()=>openPanel(m);
@@ -468,13 +455,11 @@ function renderMalla(){
     const col=document.createElement('div');
     col.className='col';
     col.dataset.sem=s;
-
     const hdr=document.createElement('div');
     hdr.className='colhdr';
     const isNum=!isNaN(parseFloat(s));
     hdr.innerHTML=`<span class="colhdr-num">${s}</span><span>${isNum?'Semestre':''}</span>`;
     col.appendChild(hdr);
-
     const cards=document.createElement('div');
     cards.className='cards';
     (semMap[s]||[]).forEach(m=>cards.appendChild(mkCard(m)));
@@ -483,27 +468,41 @@ function renderMalla(){
   });
 }
 
+function renderOptativas(){
+  const sec=document.getElementById('opts');
+  sec.innerHTML='';
+  if(!OPTATIVAS.length)return;
+  const t=document.createElement('div');t.className='ot';t.textContent='Materias Optativas';
+  sec.appendChild(t);
+  const g=document.createElement('div');g.className='og';
+  OPTATIVAS.forEach(og=>{
+    const grp=document.createElement('div');grp.className='ogg';
+    grp.innerHTML=`<div class="ogt">${og.grupo}</div>`;
+    const oc=document.createElement('div');oc.className='ogc';
+    og.materias.forEach(m=>oc.appendChild(mkCard(m,'148px','78px')));
+    grp.appendChild(oc);
+    g.appendChild(grp);
+  });
+  sec.appendChild(g);
+}
+
 /* ════════════════════════════════════════════
-   RUTEO ORTOGONAL DE CONEXIONES (MÚLTIPLES)
+   LÓGICA DE FLECHAS (ARROWS)
 ════════════════════════════════════════════ */
-const CORRIDOR_GAP=22;
+const CORRIDOR_GAP=18;
 const CORNER_R=5;
-const LANE_STEP=3.2;
+const LANE_STEP=2.8;
 
 function relPos(el){
   const base=document.getElementById('mallaWrap');
   let x=0,y=0,cur=el;
-  while(cur&&cur!==base){
-    x+=cur.offsetLeft;
-    y+=cur.offsetTop;
-    cur=cur.offsetParent;
-  }
+  while(cur&&cur!==base){x+=cur.offsetLeft;y+=cur.offsetTop;cur=cur.offsetParent;}
   return{x,y,w:el.offsetWidth,h:el.offsetHeight};
 }
 
 function getCardW(){
   const c=document.querySelector('.col .card');
-  return c?c.offsetWidth:173;
+  return c?c.offsetWidth:168;
 }
 
 function corridorCenterX(ci, cardW){
@@ -525,10 +524,7 @@ function roundedPath(pts){
   let d=`M${r(pts[0].x)},${r(pts[0].y)}`;
   for(let i=1;i<pts.length;i++){
     const prev=pts[i-1],curr=pts[i],next=pts[i+1];
-    if(!next){
-      d+=` L${r(curr.x)},${r(curr.y)}`;
-      continue;
-    }
+    if(!next){d+=` L${r(curr.x)},${r(curr.y)}`;continue;}
     const dx1=curr.x-prev.x, dy1=curr.y-prev.y;
     const dx2=next.x-curr.x, dy2=next.y-curr.y;
     const l1=Math.abs(dx1)+Math.abs(dy1);
@@ -549,8 +545,7 @@ function getLane(ci,y1,y2){
   const yA=Math.min(y1,y2),yB=Math.max(y1,y2);
   let lane=0;
   while(true){
-    const conflict=laneMap[ci].filter(e=>e.l===lane)
-      .some(e=>!(e.b<yA-1||e.a>yB+1));
+    const conflict=laneMap[ci].filter(e=>e.l===lane).some(e=>!(e.b<yA-1||e.a>yB+1));
     if(!conflict)break;
     lane++;
   }
@@ -558,9 +553,7 @@ function getLane(ci,y1,y2){
   return lane;
 }
 
-function idleColor(){
-  return getComputedStyle(document.documentElement).getPropertyValue('--aid').trim()||'rgba(255,255,255,.42)';
-}
+function idleColor(){return getComputedStyle(document.documentElement).getPropertyValue('--aid').trim()||'rgba(255,255,255,.42)';}
 
 function mkMarker(ns,id,fill){
   const mk=document.createElementNS(ns,'marker');
@@ -579,7 +572,6 @@ function renderArrows(){
   const ns='http://www.w3.org/2000/svg';
   const svg=document.getElementById('arrowsvg');
   svg.innerHTML='';
-
   const firstCard=document.querySelector('#malla .card');
   if(!firstCard||!firstCard.offsetWidth)return;
 
@@ -598,7 +590,7 @@ function renderArrows(){
 
   laneMap={};
 
-  SERIACIONES.forEach(([src,tgt]) => {
+  SERIACIONES.forEach(([src,tgt])=>{
     const se=document.getElementById('c-'+src);
     const te=document.getElementById('c-'+tgt);
     if(!se||!te)return;
@@ -606,22 +598,14 @@ function renderArrows(){
     const sp=relPos(se),tp=relPos(te);
     if(!sp.w||!tp.w)return;
 
-    const x1=sp.x+sp.w;
-    const y1=sp.y+sp.h/2;
-    const x2=tp.x;
-    const y2=tp.y+tp.h/2;
+    const x1=sp.x+sp.w, y1=sp.y+sp.h/2;
+    const x2=tp.x, y2=tp.y+tp.h/2;
 
     const ci=Math.max(0,Math.min(colIdxOf(src),semOrder.length-2));
     const lane=getLane(ci,y1,y2);
     const corrX=corridorCenterX(ci,cardW)+(lane*LANE_STEP)-(Math.min(lane,2)*LANE_STEP*0.5);
 
-    const pts=[
-      {x:x1, y:y1},
-      {x:corrX, y:y1},
-      {x:corrX, y:y2},
-      {x:x2, y:y2},
-    ];
-
+    const pts=[{x:x1, y:y1},{x:corrX, y:y1},{x:corrX, y:y2},{x:x2, y:y2}];
     const d=roundedPath(pts);
     if(!d)return;
 
@@ -637,9 +621,6 @@ function renderArrows(){
   });
 }
 
-/* ════════════════════════════════════════════
-   HOVER & INTERACCIONES
-════════════════════════════════════════════ */
 function animArrow(p,color,marker){
   p.setAttribute('stroke',color);
   p.setAttribute('stroke-width','2.2');
@@ -716,7 +697,7 @@ function applyFilter(){
 }
 
 /* ════════════════════════════════════════════
-   PANEL LATERAL DETALLADO (REDISEÑADO)
+   PANEL LATERAL (Detalles ampliados)
 ════════════════════════════════════════════ */
 function openPanel(m){
   activeCard=m.clave;
@@ -735,39 +716,34 @@ function openPanel(m){
 
   document.getElementById('pc').innerHTML=`
     <div class="pcbar" style="background:${col}"></div>
-    <div class="pck">${m.clave} · Semestre ${m.sem}</div>
+    <div class="pck">${m.clave} · Sem. ${m.sem}</div>
     <div class="pname">${m.nombre}</div>
     <div class="lb" style="background:${col}22;color:${col}">${m.linea}</div>
     
-    <div class="pgrid">
-      <div class="pstat"><div class="psn">${m.cr||0}</div><div class="psl">Créditos (CR)</div></div>
-      <div class="pstat"><div class="psn">${m.uc||0}</div><div class="psl">Unid. Cobro (UC)</div></div>
-      <div class="pstat"><div class="psn">${m.horas||'-'}</div><div class="psl">Horas Totales</div></div>
-      <div class="pstat"><div class="psn" style="font-size:14px;overflow:hidden;text-overflow:ellipsis">${m.tipo||'-'}</div><div class="psl">Tipo</div></div>
+    <div class="pgrid" style="margin-top:10px;">
+      <div class="pstat"><div class="psn">${m.cr}</div><div class="psl">Créditos</div></div>
+      <div class="pstat"><div class="psn">${m.uc}</div><div class="psl">U. de Cobro</div></div>
+      <div class="pstat"><div class="psn">${m.horas}</div><div class="psl">Horas</div></div>
+      <div class="pstat"><div class="psn" style="font-size:13px;word-break:break-word">${m.tipo}</div><div class="psl">Tipo</div></div>
     </div>
 
-    <div>
-      <div class="psec">Detalles Académicos</div>
-      <div class="pstat" style="margin-bottom:5px"><div class="rn" style="font-size:12px">${m.plan||'-'}</div><div class="psl">Plan vigente</div></div>
-      <div class="pstat"><div class="rn" style="font-size:12px">${m.equiv||'Ninguna'}</div><div class="psl">Equivalencia anterior</div></div>
+    <div class="pdesc" style="margin-top:10px;">
+      <div class="row"><strong>Plan:</strong> ${m.plan}</div>
+      <div class="row"><strong>Equivalencia:</strong> ${m.equivalencia}</div>
+      <div class="row"><strong>Notas:</strong> ${m.notas}</div>
     </div>
 
-    ${m.notas ? `<div>
-      <div class="psec">Notas / Observaciones</div>
-      <div class="pnote">${m.notas}</div>
-    </div>` : ''}
-
-    <div>
-      <div class="psec">Prerrequisitos directos (${pres.length})</div>
-      ${pres.length ? pres.map(p=>`<div class="rc" style="border-left-color:#22c55e" onclick="openPanel(byKey['${p.clave}'])">
-        <div class="rn">${p.nombre}</div><div class="rk">${p.clave} · Sem. ${p.sem}</div></div>`).join('') : '<p style="color:var(--tx2);font-size:11px;padding:2px 0;">Ninguno (Materia de acceso libre)</p>'}
-    </div>
-
-    <div>
-      <div class="psec">Asignaturas que desbloquea (${sucs.length})</div>
-      ${sucs.length ? sucs.map(s=>`<div class="rc" style="border-left-color:#f59e0b" onclick="openPanel(byKey['${s.clave}'])">
-        <div class="rn">${s.nombre}</div><div class="rk">${s.clave} · Sem. ${s.sem}</div></div>`).join('') : '<p style="color:var(--tx2);font-size:11px;padding:2px 0;">Último eslabón de la línea curricular</p>'}
-    </div>`;
+    ${pres.length?`<div>
+      <div class="psec">Prerrequisitos (${pres.length})</div>
+      ${pres.map(p=>`<div class="rc" style="border-left-color:#22c55e" onclick="openPanel(byKey['${p.clave}'])">
+        <div class="rn">${p.nombre}</div><div class="rk">${p.clave} · Sem. ${p.sem}</div></div>`).join('')}
+    </div>`:''}
+    ${sucs.length?`<div>
+      <div class="psec">Da acceso a (${sucs.length})</div>
+      ${sucs.map(s=>`<div class="rc" style="border-left-color:#f59e0b" onclick="openPanel(byKey['${s.clave}'])">
+        <div class="rn">${s.nombre}</div><div class="rk">${s.clave} · Sem. ${s.sem}</div></div>`).join('')}
+    </div>`:''}
+    ${!pres.length&&!sucs.length?'<p style="color:var(--tx2);font-size:12px;text-align:center;padding:18px 0">Sin prerrequisitos ni subsecuentes</p>':''}`;
 
   document.getElementById('pn').classList.add('open');
   document.getElementById('ov').classList.add('open');
@@ -780,9 +756,6 @@ function closePanel(){
   clearHighlights();
 }
 
-/* ════════════════════════════════════════════
-   TEMA Y EXPORTACIÓN PDF
-════════════════════════════════════════════ */
 document.getElementById('themeBtn').onclick=()=>{
   isDark=!isDark;
   document.documentElement.setAttribute('data-theme',isDark?'dark':'light');
@@ -807,23 +780,22 @@ document.getElementById('pdfBtn').onclick=async()=>{
     const mw=cv.width/1.8/3.7795+12, mh=cv.height/1.8/3.7795+12;
     const doc=new jsPDF({orientation:'landscape',unit:'mm',format:[mw,mh]});
     doc.addImage(img,'PNG',6,6,mw-12,mh-12);
-    doc.save('plan_estudios_ciencia_datos.pdf');
+    doc.save('plan_estudios.pdf');
   }catch(e){alert('Error PDF: '+e.message);}
   document.getElementById('pdfLabel').textContent='PDF';
   document.getElementById('pdfBtn').style.opacity='1';
 };
 
 /* ════════════════════════════════════════════
-   CONEXIÓN CON GOOGLE SHEETS ACTUALIZADO
+   CARGA PRINCIPAL (Google Sheets)
 ════════════════════════════════════════════ */
 async function loadFromUrl(rawUrl){
   const sheetId=extractSheetId(rawUrl);
-  if(!sheetId){showError('URL no válida: Asegúrate de ingresar un enlace correcto de Google Sheets compartido de forma pública.');return;}
-  
+  if(!sheetId){showError('URL inválida — debe ser un enlace válido de Google Sheets');return;}
   colorMap={};colorIdx=0;
   activeFilters.clear();activeCard=null;searchQ='';
 
-  showLoader('Leyendo catálogo de Ingeniería en Ciencia de Datos…');
+  showLoader('Cargando plan de estudios...');
   try{
     const mrows=await fetchSheet(sheetId,'Materias');
     
@@ -831,27 +803,53 @@ async function loadFromUrl(rawUrl){
       clave:  (r['Clave']||r['clave']||'').trim(),
       nombre: (r['Nombre']||r['nombre']||'').trim(),
       sem:    (r['Semestre']||r['semestre']||'').trim(),
-      cr:     +(r['Creditos']||r['Créditos']||r['creditos']||0),
-      uc:     +(r['UC']||r['uc']||0),
-      linea:  (r['Linea']||r['Línea']||r['Linea_Curricular']||'Tronco Común').trim(),
-      horas:  (r['Horas']||r['horas']||'').trim(),
-      plan:   (r['Plan']||r['plan']||'').trim(),
-      equiv:  (r['Equivalencia']||r['equivalencia']||'').trim(),
-      tipo:   (r['Tipo']||r['tipo']||'').trim(),
-      notas:  (r['Notas']||r['notas']||'').trim(),
-      rawPrereq: (r['Prerrequisitos']||r['Prerrequisito']||r['prerrequisitos']||'')
+      cr:     (r['Creditos']||r['Créditos']||r['creditos']||r['CR']||'5'),
+      uc:     (r['UC']||r['uc']||'5'),
+      linea:  (r['Línea']||r['Linea']||r['Linea_Curricular']||r['linea']||'Sin línea').trim(),
+      horas:  (r['Horas']||r['horas']||r['Hrs']||'-').trim(),
+      plan:   (r['Plan']||r['plan']||'-').trim(),
+      equivalencia: (r['Equivalencia']||r['equivalencia']||'-').trim(),
+      tipo:   (r['Tipo']||r['tipo']||'-').trim(),
+      notas:  (r['Notas']||r['notas']||'-').trim(),
+      prereqsRaw: (r['Prerrequisitos']||r['Prerrequisito']||r['prerrequisitos']||r['prerequisito']||'').trim()
     })).filter(m=>m.clave&&m.nombre);
 
-    // Detección dinámica de Meta-Título del Plan
-    const title=mrows[0]?.['Carrera']||mrows[0]?.['Plan_Estudios']||'Ingeniería en Ciencia de Datos';
-    const institution=mrows[0]?.['Institucion']||mrows[0]?.['Institución']||'Mapa de Seriación Oficial';
+    /* Generar seriaciones dinámicamente desde la columna Prerrequisitos */
+    SERIACIONES = [];
+    MATERIAS.forEach(m => {
+      if(m.prereqsRaw && m.prereqsRaw !== '-') {
+        // Separamos por comas o punto y coma en caso de que existan múltiples prerrequisitos.
+        const reqs = m.prereqsRaw.split(/[,;]/).map(s => s.trim()).filter(s => s);
+        reqs.forEach(req => SERIACIONES.push([req, m.clave]));
+      }
+    });
+
+    /* Opcional: Intentar cargar la hoja extra de Seriaciones si existe por retrocompatibilidad */
+    try{
+      const srows = await fetchSheet(sheetId, 'Seriaciones');
+      srows.forEach(r => {
+        const a = (r['Clave_Prerequisito']||r['Prerequisito']||r['prerequisito']||'').trim();
+        const b = (r['Clave_Siguiente']||r['Siguiente']||r['siguiente']||'').trim();
+        if(a && b) SERIACIONES.push([a, b]);
+      });
+    } catch(e) {
+      // Ignorar de forma silenciosa, ya que estamos sacándolos de la columna "Prerrequisitos".
+    }
+
+    const opts=MATERIAS.filter(m=>m.sem.toLowerCase()==='optativa');
+    const og={};
+    opts.forEach(m=>{if(!og[m.linea])og[m.linea]=[];og[m.linea].push(m);});
+    OPTATIVAS=Object.entries(og).map(([g,ms])=>({grupo:g,materias:ms}));
+
+    const title = mrows[0]?.['Plan'] || mrows[0]?.['plan'] || 'Ingeniería en Ciencia de Datos';
+    const institution = mrows[0]?.['Institucion'] || mrows[0]?.['Institución'] || '';
     document.getElementById('planTitle').textContent=title;
     document.getElementById('planSubtitle').textContent=institution;
 
     hideLoader();
     boot();
   }catch(e){
-    showError(e.message + " — Por favor confirma que la pestaña se llame 'Materias' y que tenga las cabeceras requeridas.");
+    showError(e.message);
   }
 }
 
@@ -861,6 +859,7 @@ function boot(){
   renderChips();
   renderLegend();
   renderMalla();
+  renderOptativas();
 
   requestAnimationFrame(()=>{
     requestAnimationFrame(()=>{
@@ -871,9 +870,6 @@ function boot(){
   });
 }
 
-/* ════════════════════════════════════════════
-   EVENT LISTENERS
-════════════════════════════════════════════ */
 document.getElementById('loadBtn').onclick=()=>{
   const url=document.getElementById('sheetUrl').value.trim();
   if(url)loadFromUrl(url);
@@ -892,9 +888,11 @@ document.getElementById('sc').addEventListener('scroll',()=>{renderArrows();});
 window.byKey=byKey;
 window.openPanel=openPanel;
 
-// Auto-carga inicial con tu nueva hoja de Ingeniería en Ciencia de Datos
-const REAL_URL='https://docs.google.com/spreadsheets/d/1j1OW22HqY01vJU-uOvIJRFqA59l412xDzKnvknjqJWc/edit?usp=sharing';
-loadFromUrl(REAL_URL);
+/* ════════════════════════════════════════════
+   AUTO-CARGA al iniciar
+════════════════════════════════════════════ */
+const DEFAULT_URL='https://docs.google.com/spreadsheets/d/1j1OW22HqY01vJU-uOvIJRFqA59l412xDzKnvknjqJWc/edit?usp=sharing';
+loadFromUrl(DEFAULT_URL);
 </script>
 </body>
 </html>
