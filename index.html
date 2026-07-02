@@ -3,149 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plan de Estudios Interactivo - Ciencia de Datos</title>
+<title>Plan de Estudios Interactivo</title>
 <style>
 /* ── TOKENS ── */
 :root{
   --bg:#0f1117;--sf:#1a1d27;--sf2:#22263a;
-  --bd:rgba(255,255,255,.09);--bds:rgba(255,255,255,.2);
+  --bd:rgba(255,255,255,.08);--bds:rgba(255,255,255,.18);
   --tx:#e8eaf0;--tx2:#8b90a7;--ac:#5B8DEF;
   --cbg:#1a1d27;--cnm:#fff;
-  --pb:rgba(255,255,255,.09);--pf:#8b90a7;
-  --aid:rgba(255,255,255,.42);
+  --pb:rgba(255,255,255,.08);--pf:#8b90a7;
+  --aid:rgba(255,255,255,.45);
 }
 [data-theme=light]{
-  --bg:#eef0f5;--sf:#fff;--sf2:#f5f6fa;
-  --bd:rgba(0,0,0,.1);--bds:rgba(0,0,0,.22);
+  --bg:#eef0f5;--sf:#fff;--sf2:#f4f5f9;
+  --bd:rgba(0,0,0,.09);--bds:rgba(0,0,0,.2);
   --tx:#1a1d2e;--tx2:#5a6070;--ac:#2563EB;
   --cbg:#fff;--cnm:#111827;
-  --pb:rgba(0,0,0,.06);--pf:#5a6070;
-  --aid:rgba(40,50,90,.55);
+  --pb:rgba(0,0,0,.05);--pf:#5a6070;
+  --aid:rgba(30,40,90,.52);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden;transition:background .2s,color .2s}
 
-/* ── HEADER ── */
-header{background:var(--sf);border-bottom:1px solid var(--bd);padding:12px 24px;position:sticky;top:0;z-index:200}
+/* HEADER */
+header{background:var(--sf);border-bottom:1px solid var(--bd);padding:11px 22px;position:sticky;top:0;z-index:200;box-shadow:0 1px 8px rgba(0,0,0,.15)}
 .htop{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.logo h1{font-size:15px;font-weight:700;color:var(--tx);line-height:1.2}
-.logo p{font-size:10px;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em;margin-top:1px}
-.hbtns{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:5px;padding:6px 11px;border-radius:8px;font-size:11.5px;font-weight:600;cursor:pointer;border:1px solid var(--bds);background:var(--sf2);color:var(--tx);transition:border-color .14s,background .14s;white-space:nowrap;user-select:none}
+.logo h1{font-size:14.5px;font-weight:700;color:var(--tx);line-height:1.2}
+.logo p{font-size:9.5px;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em;margin-top:1px}
+.hbtns{display:flex;gap:5px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:7px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--bds);background:var(--sf2);color:var(--tx);transition:border-color .13s;white-space:nowrap;user-select:none}
 .btn:hover{border-color:var(--ac)}
-.btn svg{width:14px;height:14px;flex-shrink:0}
-.btn.primary{background:var(--ac);color:#fff;border-color:var(--ac)}
-.btn.primary:hover{filter:brightness(1.1)}
-.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(91,141,239,.12);border:1px solid rgba(91,141,239,.3);border-radius:20px;padding:4px 11px;font-size:11px;color:var(--ac)}
+.btn svg{width:13px;height:13px;flex-shrink:0}
+.btn.pri{background:var(--ac);color:#fff;border-color:var(--ac)}
+.btn.pri:hover{filter:brightness(1.1)}
+.badge{display:inline-flex;align-items:center;gap:5px;background:rgba(91,141,239,.12);border:1px solid rgba(91,141,239,.28);border-radius:20px;padding:3px 10px;font-size:10.5px;color:var(--ac)}
 .bdot{width:6px;height:6px;background:var(--ac);border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
 
-/* ── SOURCE BAR ── */
-.srcbar{display:flex;align-items:center;gap:8px;padding:8px 24px;background:var(--sf2);border-bottom:1px solid var(--bd);flex-wrap:wrap}
-.srcbar label{font-size:11px;font-weight:600;color:var(--tx2);white-space:nowrap}
-.srcbar input{flex:1;min-width:220px;background:var(--sf);border:1px solid var(--bd);color:var(--tx);border-radius:8px;padding:6px 10px;font-size:11.5px;outline:none;font-family:monospace;transition:border-color .18s}
+/* SOURCE BAR */
+.srcbar{display:flex;align-items:center;gap:7px;padding:7px 22px;background:var(--sf2);border-bottom:1px solid var(--bd);flex-wrap:wrap}
+.srcbar label{font-size:10.5px;font-weight:600;color:var(--tx2);white-space:nowrap}
+.srcbar input{flex:1;min-width:200px;background:var(--sf);border:1px solid var(--bd);color:var(--tx);border-radius:7px;padding:5px 9px;font-size:11px;outline:none;font-family:monospace;transition:border-color .17s}
 .srcbar input:focus{border-color:var(--ac)}
-.srcbar input::placeholder{color:var(--tx2);font-family:'Segoe UI',system-ui,sans-serif}
-.src-hint{font-size:10px;color:var(--tx2);white-space:nowrap}
+.srcbar input::placeholder{color:var(--tx2);font-family:inherit}
+.src-hint{font-size:9.5px;color:var(--tx2);white-space:nowrap}
 
-/* ── CONTROLS ── */
-.ctls{display:flex;gap:7px;align-items:center;flex-wrap:wrap;padding:7px 24px;background:var(--sf);border-bottom:1px solid var(--bd)}
-.sw{position:relative;flex:1;min-width:140px;max-width:240px}
-.sw input{width:100%;background:var(--sf2);border:1px solid var(--bd);color:var(--tx);border-radius:8px;padding:6px 10px 6px 28px;font-size:12px;outline:none;transition:border-color .18s}
+/* CONTROLS */
+.ctls{display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding:6px 22px;background:var(--sf);border-bottom:1px solid var(--bd)}
+.sw{position:relative;flex:1;min-width:130px;max-width:230px}
+.sw input{width:100%;background:var(--sf2);border:1px solid var(--bd);color:var(--tx);border-radius:7px;padding:5px 9px 5px 27px;font-size:11.5px;outline:none;transition:border-color .17s}
 .sw input:focus{border-color:var(--ac)}
 .sw input::placeholder{color:var(--tx2)}
-.sw svg{position:absolute;left:8px;top:50%;transform:translateY(-50%);opacity:.4;pointer-events:none}
-.chips{display:flex;gap:5px;flex-wrap:wrap}
-.chip{padding:3px 9px;border-radius:14px;font-size:10px;font-weight:600;cursor:pointer;border:1.5px solid transparent;transition:all .15s;white-space:nowrap;user-select:none}
+.sw svg{position:absolute;left:7px;top:50%;transform:translateY(-50%);opacity:.38;pointer-events:none}
+.chips{display:flex;gap:4px;flex-wrap:wrap}
+.chip{padding:3px 8px;border-radius:13px;font-size:10px;font-weight:600;cursor:pointer;border:1.5px solid transparent;transition:all .14s;white-space:nowrap;user-select:none}
 .chip.on{opacity:1}
-.chip:not(.on){opacity:.28;filter:saturate(.15)}
-.chip:hover:not(.on){opacity:.65}
+.chip:not(.on){opacity:.25;filter:saturate(.12)}
+.chip:hover:not(.on){opacity:.6}
 
-/* ── STATS ── */
+/* STATS */
 .stats{display:flex;border-bottom:1px solid var(--bd);background:var(--sf)}
-.stat{flex:1;text-align:center;padding:7px 4px;border-right:1px solid var(--bd)}
+.stat{flex:1;text-align:center;padding:7px 3px;border-right:1px solid var(--bd)}
 .stat:last-child{border-right:none}
-.stn{font-size:18px;font-weight:700;color:var(--tx)}
-.stl{font-size:8.5px;color:var(--tx2);text-transform:uppercase;letter-spacing:.06em;margin-top:1px}
+.stn{font-size:17px;font-weight:700;color:var(--tx)}
+.stl{font-size:8px;color:var(--tx2);text-transform:uppercase;letter-spacing:.06em;margin-top:1px}
 
-/* ── SCROLL WRAPPER ── */
-.sc{overflow:auto;padding:20px 24px 32px}
+/* SCROLL */
+.sc{overflow:auto;padding:18px 22px 30px}
 
-/* ── MALLA: flex de columnas, SVG absoluto encima ── */
+/* MALLA */
 .malla-wrap{position:relative;width:max-content;min-width:100%}
 #arrowsvg{position:absolute;top:0;left:0;pointer-events:none;z-index:10;overflow:visible}
 .malla{display:flex;gap:0;width:max-content}
 
-/* ── COLUMN ── */
-.col{display:flex;flex-direction:column;width:186px;flex-shrink:0}
-.colhdr{text-align:center;padding-bottom:10px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx2);border-bottom:2px solid var(--bd);margin-bottom:10px;display:flex;flex-direction:column;align-items:center;gap:2px}
-.colhdr-num{font-size:20px;font-weight:800;color:var(--tx);line-height:1}
-.cards{display:flex;flex-direction:column;gap:13px;padding-right:18px}
+/* COLUMN */
+.col{display:flex;flex-direction:column;width:184px;flex-shrink:0}
+.colhdr{text-align:center;padding-bottom:9px;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx2);border-bottom:2px solid var(--bd);margin-bottom:9px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.colhdr-n{font-size:19px;font-weight:800;color:var(--tx);line-height:1}
+.cards{display:flex;flex-direction:column;gap:12px;padding-right:18px}
 
-/* ── CARD ── */
-.card{width:168px;min-height:86px;border-radius:10px;padding:9px 10px 8px;position:relative;cursor:pointer;border-top:3px solid transparent;background:var(--cbg);border-left:1px solid var(--bd);border-right:1px solid var(--bd);border-bottom:1px solid var(--bd);transition:transform .16s,box-shadow .16s,opacity .16s;user-select:none}
-.card:hover{transform:translateY(-2px) scale(1.01);box-shadow:0 8px 24px rgba(0,0,0,.25)}
-.card.dim{opacity:.1}
-.card.hl{box-shadow:0 0 0 2.5px var(--ac),0 5px 18px rgba(0,0,0,.25)}
-.card.pre{box-shadow:0 0 0 2.5px #22c55e,0 4px 16px rgba(34,197,94,.2)}
-.card.suc{box-shadow:0 0 0 2.5px #f59e0b,0 4px 16px rgba(245,158,11,.2)}
-.ck{font-size:8.5px;font-weight:700;letter-spacing:.08em;opacity:.65;text-transform:uppercase;margin-bottom:3px}
-.cn{font-size:10.5px;font-weight:600;line-height:1.35;color:var(--cnm)}
-.cf{display:flex;gap:4px;margin-top:6px}
-.pill{font-size:8.5px;font-weight:700;padding:2px 5px;border-radius:4px;background:var(--pb);color:var(--pf)}
-.pdot{position:absolute;right:6px;bottom:6px;width:6px;height:6px;border-radius:50%;background:#22c55e;opacity:.7}
+/* CARD */
+.card{width:166px;min-height:84px;border-radius:9px;padding:9px 10px 8px;position:relative;cursor:pointer;border-top:3px solid transparent;background:var(--cbg);border-left:1px solid var(--bd);border-right:1px solid var(--bd);border-bottom:1px solid var(--bd);transition:transform .15s,box-shadow .15s,opacity .15s;user-select:none}
+.card:hover{transform:translateY(-2px) scale(1.015);box-shadow:0 8px 22px rgba(0,0,0,.22)}
+.card.dim{opacity:.09}
+.card.hl{box-shadow:0 0 0 2.5px var(--ac),0 5px 18px rgba(0,0,0,.22)}
+.card.pre{box-shadow:0 0 0 2.5px #22c55e,0 4px 14px rgba(34,197,94,.18)}
+.card.suc{box-shadow:0 0 0 2.5px #f59e0b,0 4px 14px rgba(245,158,11,.18)}
+.ck{font-size:8.5px;font-weight:700;letter-spacing:.08em;opacity:.62;text-transform:uppercase;margin-bottom:2px}
+.cn{font-size:10.5px;font-weight:600;line-height:1.33;color:var(--cnm)}
+.cf{display:flex;gap:4px;margin-top:5px;flex-wrap:wrap}
+.pill{font-size:8px;font-weight:700;padding:2px 5px;border-radius:4px;background:var(--pb);color:var(--pf)}
+.pdot{position:absolute;right:6px;bottom:6px;width:6px;height:6px;border-radius:50%;background:#22c55e;opacity:.75}
 
-/* ── ARROWS ── */
+/* ARROWS */
 @keyframes march{from{stroke-dashoffset:28}to{stroke-dashoffset:0}}
 
-/* ── OPTATIVAS ── */
-.opts{padding:0 24px 24px}
-.ot{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx2);margin-bottom:11px;border-top:1px solid var(--bd);padding-top:16px}
-.og{display:flex;gap:12px;flex-wrap:wrap}
-.ogg{background:var(--sf);border:1px dashed var(--bds);border-radius:10px;padding:10px 12px}
-.ogt{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tx2);margin-bottom:7px}
-.ogc{display:flex;gap:7px;flex-wrap:wrap}
+/* OPTATIVAS */
+.opts{padding:0 22px 22px}
+.ot{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx2);margin-bottom:10px;border-top:1px solid var(--bd);padding-top:15px}
+.og{display:flex;gap:11px;flex-wrap:wrap}
+.ogg{background:var(--sf);border:1px dashed var(--bds);border-radius:9px;padding:9px 11px}
+.ogt{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tx2);margin-bottom:6px}
+.ogc{display:flex;gap:6px;flex-wrap:wrap}
 
-/* ── LEGEND ── */
-.legend{background:var(--sf);border-top:1px solid var(--bd);padding:12px 24px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
-.lt{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--tx2);margin-right:4px;white-space:nowrap}
-.li{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--tx2);white-space:nowrap}
+/* LEGEND */
+.legend{background:var(--sf);border-top:1px solid var(--bd);padding:11px 22px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.lt{font-size:8.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--tx2);margin-right:3px;white-space:nowrap}
+.li{display:flex;align-items:center;gap:4px;font-size:9.5px;color:var(--tx2);white-space:nowrap}
 .ld{width:8px;height:8px;border-radius:2px;flex-shrink:0}
 
-/* ── PANEL ── */
+/* PANEL */
 .ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;display:none;backdrop-filter:blur(3px)}
 .ov.open{display:block}
-.pn{position:fixed;right:0;top:0;bottom:0;width:320px;max-width:90vw;background:var(--sf2);border-left:1px solid var(--bd);z-index:301;padding:22px 18px;overflow-y:auto;transform:translateX(100%);transition:transform .24s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;gap:14px}
+.pn{position:fixed;right:0;top:0;bottom:0;width:330px;max-width:92vw;background:var(--sf2);border-left:1px solid var(--bd);z-index:301;padding:20px 17px 20px 18px;overflow-y:auto;transform:translateX(100%);transition:transform .23s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;gap:13px}
 .pn.open{transform:translateX(0)}
-.pcbar{height:4px;border-radius:4px}
-.pck{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--tx2);text-transform:uppercase}
-.pname{font-size:17px;font-weight:700;color:var(--tx);line-height:1.3}
-.psec{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tx2);margin-bottom:5px;margin-top:10px}
-.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
-.pstat{background:var(--sf);border-radius:8px;padding:9px;border:1px solid var(--bd)}
-.psn{font-size:16px;font-weight:800;color:var(--tx)}
-.psl{font-size:9px;color:var(--tx2);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
-.pdesc{background:var(--sf);border-radius:8px;padding:12px;border:1px solid var(--bd);font-size:12px;color:var(--tx2);line-height:1.5;}
-.pdesc strong{color:var(--tx);font-weight:600;}
-.pdesc .row{margin-bottom: 6px;}
-.rc{background:var(--sf);border-radius:7px;padding:8px 10px;border-left:3px solid;margin-bottom:4px;cursor:pointer;transition:background .12s}
+.pcbar{height:4px;border-radius:4px;margin-bottom:1px}
+.pck{font-size:9.5px;font-weight:700;letter-spacing:.1em;color:var(--tx2);text-transform:uppercase}
+.pname{font-size:16px;font-weight:700;color:var(--tx);line-height:1.3}
+.plb{display:inline-block;padding:2px 8px;border-radius:5px;font-size:10px;font-weight:700;margin-top:1px}
+/* panel grid stats */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.pstat{background:var(--sf);border-radius:7px;padding:8px;border:1px solid var(--bd);text-align:center}
+.psn{font-size:18px;font-weight:800;color:var(--tx)}
+.psl{font-size:8px;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em;margin-top:1px}
+/* panel fields */
+.pfields{display:flex;flex-direction:column;gap:6px}
+.pfield{background:var(--sf);border-radius:7px;padding:8px 10px;border:1px solid var(--bd)}
+.pflabel{font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--tx2);margin-bottom:3px}
+.pfval{font-size:12px;color:var(--tx);line-height:1.4}
+.pfval.mono{font-family:monospace;font-size:11px}
+/* prereq/suc rel cards */
+.psec{font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tx2);margin-bottom:5px}
+.rc{background:var(--sf);border-radius:7px;padding:7px 9px;border-left:3px solid;margin-bottom:4px;cursor:pointer;transition:background .11s}
 .rc:hover{background:var(--bg)}
 .rn{font-size:11px;font-weight:600;color:var(--tx)}
-.rk{font-size:9px;color:var(--tx2);margin-top:1px}
-.xb{position:absolute;top:12px;right:12px;background:var(--sf);border:1px solid var(--bd);color:var(--tx);width:26px;height:26px;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;transition:background .12s}
+.rk{font-size:8.5px;color:var(--tx2);margin-top:1px}
+.xb{position:absolute;top:11px;right:11px;background:var(--sf);border:1px solid var(--bd);color:var(--tx);width:25px;height:25px;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;transition:background .11s}
 .xb:hover{background:var(--bg)}
-.lb{display:inline-block;padding:3px 8px;border-radius:5px;font-size:10.5px;font-weight:700;margin-top:1px}
 
-/* ── LOADER / ERROR ── */
-#loader{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;z-index:999;padding:32px;text-align:center}
+/* LOADER */
+#loader{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;z-index:999;padding:30px;text-align:center}
 #loader.hidden{display:none}
 @keyframes spin{to{transform:rotate(360deg)}}
 .spinner{animation:spin 1s linear infinite}
 
 @media(max-width:640px){
-  header,.srcbar,.ctls,.legend,.opts{padding-left:14px;padding-right:14px}
-  .sc{padding:12px}
-  .stats{display:none}
+  header,.srcbar,.ctls,.legend,.opts{padding-left:13px;padding-right:13px}
+  .sc{padding:11px}.stats{display:none}
+  .pgrid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
@@ -155,26 +160,16 @@ header{background:var(--sf);border-bottom:1px solid var(--bd);padding:12px 24px;
   <div class="htop">
     <div class="logo">
       <h1 id="planTitle">Plan de Estudios Interactivo</h1>
-      <p id="planSubtitle">Cargando…</p>
+      <p id="planSubtitle">Cargando datos…</p>
     </div>
     <div class="hbtns">
       <div class="badge"><span class="bdot"></span>Interactivo</div>
       <button class="btn" id="themeBtn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="5"/>
-          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <span id="themeLabel">Modo claro</span>
       </button>
       <button class="btn" id="pdfBtn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-          <polyline points="14 2 14 8 20 8"/>
-          <line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
         <span id="pdfLabel">PDF</span>
       </button>
     </div>
@@ -182,24 +177,18 @@ header{background:var(--sf);border-bottom:1px solid var(--bd);padding:12px 24px;
 </header>
 
 <div class="srcbar">
-  <label for="sheetUrl">🔗 Fuente de datos (Google Sheets):</label>
-  <input type="text" id="sheetUrl"
-    value="https://docs.google.com/spreadsheets/d/1j1OW22HqY01vJU-uOvIJRFqA59l412xDzKnvknjqJWc/edit?usp=sharing"
-    placeholder="https://docs.google.com/spreadsheets/d/…/edit">
-  <button class="btn primary" id="loadBtn">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13">
-      <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/>
-    </svg>
-    Buscar / Cargar
+  <label for="sheetUrl">🔗 Fuente de datos:</label>
+  <input type="text" id="sheetUrl" placeholder="https://docs.google.com/spreadsheets/d/…/edit">
+  <button class="btn pri" id="loadBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="12" height="12"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+    Cargar
   </button>
-  <span class="src-hint">Hoja requerida: <b>Materias</b> (Incluir columna Prerrequisitos)</span>
+  <span class="src-hint">Hojas: <b>Materias</b> y <b>Seriaciones</b></span>
 </div>
 
 <div class="ctls">
   <div class="sw">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="13" height="13">
-      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-    </svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" id="srch" placeholder="Buscar materia o clave…">
   </div>
   <div class="chips" id="chips"></div>
@@ -215,8 +204,7 @@ header{background:var(--sf);border-bottom:1px solid var(--bd);padding:12px 24px;
 </div>
 
 <div class="opts" id="opts"></div>
-
-<div class="legend" id="leg"><span class="lt">Áreas / Líneas Curriculares</span></div>
+<div class="legend" id="leg"><span class="lt">Líneas curriculares</span></div>
 
 <div class="ov" id="ov"></div>
 <div class="pn" id="pn">
@@ -225,10 +213,10 @@ header{background:var(--sf);border-bottom:1px solid var(--bd);padding:12px 24px;
 </div>
 
 <div id="loader">
-  <svg class="spinner" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="2">
+  <svg class="spinner" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="2">
     <path d="M21 12a9 9 0 1 1-6.22-8.56"/>
   </svg>
-  <span id="loaderMsg" style="font-size:13px;color:var(--tx2)">Iniciando…</span>
+  <span id="loaderMsg" style="font-size:12.5px;color:var(--tx2)">Iniciando…</span>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -236,20 +224,20 @@ header{background:var(--sf);border-bottom:1px solid var(--bd);padding:12px 24px;
 <script>
 'use strict';
 
-/* ════════════════════════════════════════════
-   UTILIDADES GOOGLE SHEETS → CSV
-════════════════════════════════════════════ */
-function extractSheetId(url){
+/* ═══════════════════════════════════════
+   GOOGLE SHEETS — fetch CSV
+═══════════════════════════════════════ */
+function extractId(url){
   const m=url.match(/\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/);
   return m?m[1]:null;
 }
 
-function makeUrls(sheetId, sheetName){
-  const enc=encodeURIComponent(sheetName);
-  return [
-    `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${enc}`,
-    `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&sheet=${enc}`,
-    `https://corsproxy.io/?url=${encodeURIComponent(`https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&sheet=${enc}`)}`,
+function sheetUrls(id,sheet){
+  const e=encodeURIComponent(sheet);
+  return[
+    `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:csv&sheet=${e}`,
+    `https://docs.google.com/spreadsheets/d/${id}/export?format=csv&sheet=${e}`,
+    `https://corsproxy.io/?url=${encodeURIComponent('https://docs.google.com/spreadsheets/d/'+id+'/export?format=csv&sheet='+e)}`,
   ];
 }
 
@@ -271,7 +259,7 @@ function parseCsv(raw){
   return rows;
 }
 
-function csvToObjs(rows){
+function toObjs(rows){
   if(rows.length<2)return[];
   const hdrs=rows[0].map(v=>v.replace(/^"|"$/g,'').trim());
   return rows.slice(1).map(r=>{
@@ -281,164 +269,173 @@ function csvToObjs(rows){
   }).filter(o=>Object.values(o).some(v=>v));
 }
 
-async function fetchSheet(sheetId, name){
-  const urls=makeUrls(sheetId,name);
-  let lastErr='';
+async function fetchSheet(id,name){
+  const urls=sheetUrls(id,name);
+  let lastErr='sin respuesta';
   for(const url of urls){
     try{
-      const r=await fetch(url,{cache:'no-store'});
-      if(!r.ok){lastErr=`HTTP ${r.status}`;continue;}
-      const txt=await r.text();
-      if(txt.trim().startsWith('<!')){lastErr='Respuesta HTML (verifica permisos)';continue;}
+      const res=await fetch(url,{cache:'no-store'});
+      if(!res.ok){lastErr=`HTTP ${res.status}`;continue;}
+      const txt=await res.text();
+      if(txt.trim().startsWith('<!')){lastErr='Google devolvió HTML (verifica permisos)';continue;}
       const rows=parseCsv(txt);
-      if(rows.length<2){lastErr='Hoja vacía';continue;}
-      return csvToObjs(rows);
+      if(rows.length<2){lastErr='Hoja vacía o sin datos';continue;}
+      return toObjs(rows);
     }catch(e){lastErr=e.message;continue;}
   }
   throw new Error(`Hoja "${name}": ${lastErr}`);
 }
 
-/* ════════════════════════════════════════════
-   PALETA DINÁMICA DE COLORES
-════════════════════════════════════════════ */
-const PALETTE=[
-  '#F28B82','#FB8C00','#FDD663','#81C995','#6CB4E4','#5BB974',
-  '#00ACC1','#7986CB','#A78BFA','#90A4AE','#F06292','#4DB6AC',
-  '#FF8A65','#BA68C8','#B0BEC5','#EF9A9A','#4FC3F7','#AED581',
+/* ═══════════════════════════════════════
+   PALETA DINÁMICA
+═══════════════════════════════════════ */
+const PAL=[
+  '#5B8DEF','#F28B82','#FDD663','#81C995','#FB8C00','#6CB4E4',
+  '#5BB974','#00ACC1','#7986CB','#A78BFA','#F06292','#4DB6AC',
+  '#FF8A65','#BA68C8','#90A4AE','#4FC3F7','#AED581','#FFB74D',
+  '#E57373','#64B5F6','#81C784','#DCE775','#CE93D8','#EF9A9A',
 ];
-let colorMap={};
-let colorIdx=0;
-
-function colorFor(linea){
-  if(!colorMap[linea]){
-    colorMap[linea]=PALETTE[colorIdx%PALETTE.length];
-    colorIdx++;
-  }
+let colorMap={},colorIdx=0;
+function col(linea){
+  if(!colorMap[linea]){colorMap[linea]=PAL[colorIdx%PAL.length];colorIdx++;}
   return colorMap[linea];
 }
 
-/* ════════════════════════════════════════════
+/* ═══════════════════════════════════════
    ESTADO GLOBAL
-════════════════════════════════════════════ */
-let MATERIAS=[], SERIACIONES=[], OPTATIVAS=[];
-let byKey={}, semOrder=[], semMap={}, preOf={}, sucOf={};
+═══════════════════════════════════════ */
+let MATERIAS=[],SERIACIONES=[],OPTATIVAS=[];
+let byKey={},semOrder=[],semMap={},preOf={},sucOf={};
 let cardEls={};
-let activeFilters=new Set(), searchQ='', activeCard=null, isDark=true;
+let activeFilters=new Set(),searchQ='',activeCard=null,isDark=true;
 
 function buildLookups(){
   byKey={};
   MATERIAS.forEach(m=>byKey[m.clave]=m);
 
+  /* semestres en orden numérico, "Optativa" al final */
   const semSet=new Set(MATERIAS.map(m=>m.sem).filter(s=>s&&s.toLowerCase()!=='optativa'));
   semOrder=[...semSet].sort((a,b)=>{
     const na=parseFloat(a),nb=parseFloat(b);
     if(!isNaN(na)&&!isNaN(nb))return na-nb;
-    return a.localeCompare(b);
+    return a.localeCompare(b,'es');
   });
 
   semMap={};
   semOrder.forEach(s=>semMap[s]=[]);
   MATERIAS.forEach(m=>{if(semMap[m.sem])semMap[m.sem].push(m);});
 
+  /* seriaciones: cada materia puede tener múltiples prereqs */
   preOf={};sucOf={};
   SERIACIONES.forEach(([a,b])=>{
-    if(!preOf[b])preOf[b]=[];preOf[b].push(a);
-    if(!sucOf[a])sucOf[a]=[];sucOf[a].push(b);
+    if(!preOf[b])preOf[b]=[];
+    if(!preOf[b].includes(a))preOf[b].push(a);
+    if(!sucOf[a])sucOf[a]=[];
+    if(!sucOf[a].includes(b))sucOf[a].push(b);
   });
 }
 
-/* ════════════════════════════════════════════
-   LOADER UI
-════════════════════════════════════════════ */
-function showLoader(msg){
+/* ═══════════════════════════════════════
+   LOADER / ERROR UI
+═══════════════════════════════════════ */
+function setLoader(msg){
   const el=document.getElementById('loader');
   el.classList.remove('hidden');
   el.innerHTML=`
-    <svg class="spinner" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="2">
+    <svg class="spinner" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="2">
       <path d="M21 12a9 9 0 1 1-6.22-8.56"/>
     </svg>
-    <span style="font-size:13px;color:var(--tx2)">${msg}</span>`;
+    <span style="font-size:12.5px;color:var(--tx2)">${msg}</span>`;
 }
-function hideLoader(){
-  document.getElementById('loader').classList.add('hidden');
-}
+function hideLoader(){document.getElementById('loader').classList.add('hidden');}
 function showError(msg){
-  document.getElementById('loader').classList.remove('hidden');
-  document.getElementById('loader').innerHTML=`
-    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F28B82" stroke-width="2">
+  const isFile=location.protocol==='file:';
+  const el=document.getElementById('loader');
+  el.classList.remove('hidden');
+  el.innerHTML=`
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#F28B82" stroke-width="2">
       <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
     </svg>
-    <p style="font-size:14px;font-weight:600;color:var(--tx)">Error de Carga</p>
-    <p style="font-size:12px;color:var(--tx2);max-width:460px">${msg}</p>
-    <button onclick="location.reload()" style="margin-top:10px;padding:7px 18px;border-radius:8px;border:1px solid var(--bds);background:var(--sf2);color:var(--tx);cursor:pointer;font-size:13px">Reintentar</button>`;
+    <p style="font-size:14px;font-weight:600;color:var(--tx)">No se pudo cargar el plan de estudios</p>
+    <p style="font-size:11.5px;color:var(--tx2);max-width:460px">${msg}</p>
+    ${isFile?`<div style="background:var(--sf2);border:1px solid var(--bds);border-radius:8px;padding:13px;max-width:450px;text-align:left;font-size:11px;color:var(--tx2);line-height:1.65">
+      <strong style="color:var(--tx)">⚠️ Archivo local (file://)</strong><br>
+      El navegador bloquea peticiones de red desde archivos locales.<br>
+      <strong style="color:var(--tx)">Solución:</strong> Sube el HTML a GitHub Pages, Netlify u otro hosting con HTTPS.
+    </div>`:''}
+    <button onclick="location.reload()" style="padding:6px 16px;border-radius:7px;border:1px solid var(--bds);background:var(--sf2);color:var(--tx);cursor:pointer;font-size:12px">Reintentar</button>`;
 }
 
-/* ════════════════════════════════════════════
-   RENDERIZADO
-════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   STATS
+═══════════════════════════════════════ */
 function renderStats(){
-  const creds=MATERIAS.reduce((a,m)=>a+(+m.cr||5),0);
+  const main=MATERIAS.filter(m=>m.sem.toLowerCase()!=='optativa');
+  const creds=main.reduce((a,m)=>a+(+m.cr||0),0);
   const lins=new Set(MATERIAS.map(m=>m.linea)).size;
   document.getElementById('stats').innerHTML=`
-    <div class="stat"><div class="stn">${MATERIAS.filter(m=>m.sem.toLowerCase()!=='optativa').length}</div><div class="stl">Materias</div></div>
+    <div class="stat"><div class="stn">${main.length}</div><div class="stl">Materias</div></div>
     <div class="stat"><div class="stn">${creds}</div><div class="stl">Créditos</div></div>
     <div class="stat"><div class="stn">${semOrder.length}</div><div class="stl">Semestres</div></div>
     <div class="stat"><div class="stn">${SERIACIONES.length}</div><div class="stl">Seriaciones</div></div>
     <div class="stat"><div class="stn">${lins}</div><div class="stl">Líneas</div></div>`;
 }
 
+/* ═══════════════════════════════════════
+   CHIPS
+═══════════════════════════════════════ */
 function renderChips(){
   const lins=[...new Set(MATERIAS.map(m=>m.linea))].sort();
   const w=document.getElementById('chips');w.innerHTML='';
-
   const all=document.createElement('div');
   all.className='chip '+(activeFilters.size===0?'on':'');
-  all.style.cssText='background:rgba(128,128,128,.11);border-color:rgba(128,128,128,.3);color:var(--tx)';
+  all.style.cssText='background:rgba(120,120,140,.12);border-color:rgba(120,120,140,.3);color:var(--tx)';
   all.textContent='Todas';
   all.onclick=()=>{activeFilters.clear();renderChips();applyFilter();};
   w.appendChild(all);
-
   lins.forEach(l=>{
-    const hex=colorFor(l);
-    const on=activeFilters.has(l);
+    const hex=col(l),on=activeFilters.has(l);
     const c=document.createElement('div');
     c.className='chip '+(on?'on':'');
-    c.style.cssText=`background:${hex}${on?'28':'14'};border-color:${hex}${on?'bb':'44'};color:${hex}`;
+    c.style.cssText=`background:${hex}${on?'28':'12'};border-color:${hex}${on?'cc':'40'};color:${hex}`;
     c.textContent=l;
-    c.onclick=()=>{
-      activeFilters.has(l)?activeFilters.delete(l):activeFilters.add(l);
-      renderChips();applyFilter();
-    };
+    c.onclick=()=>{activeFilters.has(l)?activeFilters.delete(l):activeFilters.add(l);renderChips();applyFilter();};
     w.appendChild(c);
   });
 }
 
+/* ═══════════════════════════════════════
+   LEGEND
+═══════════════════════════════════════ */
 function renderLegend(){
   const leg=document.getElementById('leg');
-  leg.innerHTML='<span class="lt">Líneas Curriculares</span>';
+  leg.innerHTML='<span class="lt">Líneas curriculares</span>';
   [...new Set(MATERIAS.map(m=>m.linea))].sort().forEach(l=>{
     const d=document.createElement('div');d.className='li';
-    d.innerHTML=`<div class="ld" style="background:${colorFor(l)}"></div>${l}`;
+    d.innerHTML=`<div class="ld" style="background:${col(l)}"></div>${l}`;
     leg.appendChild(d);
   });
 }
 
-function mkCard(m, extraW, extraH){
-  const col=colorFor(m.linea);
+/* ═══════════════════════════════════════
+   CARD
+═══════════════════════════════════════ */
+function mkCard(m,w,h){
+  const c=col(m.linea);
   const el=document.createElement('div');
-  el.className='card';
-  el.id='c-'+m.clave;
-  if(extraW)el.style.width=extraW;
-  if(extraH)el.style.minHeight=extraH;
-  el.style.borderTopColor=col;
+  el.className='card';el.id='c-'+m.clave;
+  if(w)el.style.width=w;if(h)el.style.minHeight=h;
+  el.style.borderTopColor=c;
+  const hasPre=(preOf[m.clave]||[]).length>0;
   el.innerHTML=`
-    <div class="ck" style="color:${col}">${m.clave}</div>
+    <div class="ck" style="color:${c}">${m.clave}</div>
     <div class="cn">${m.nombre}</div>
     <div class="cf">
-      <span class="pill">${m.cr} CR</span>
-      <span class="pill">${m.uc} UC</span>
+      ${m.cr?`<span class="pill">${m.cr} CR</span>`:''}
+      ${m.uc?`<span class="pill">${m.uc} UC</span>`:''}
+      ${m.horas?`<span class="pill">${m.horas} H</span>`:''}
     </div>
-    ${(preOf[m.clave]||[]).length?'<div class="pdot"></div>':''}`;
+    ${hasPre?'<div class="pdot"></div>':''}`;
   el.onclick=()=>openPanel(m);
   el.addEventListener('mouseenter',()=>onHover(m.clave));
   el.addEventListener('mouseleave',()=>onLeave());
@@ -446,147 +443,155 @@ function mkCard(m, extraW, extraH){
   return el;
 }
 
+/* ═══════════════════════════════════════
+   MALLA
+═══════════════════════════════════════ */
 function renderMalla(){
   const malla=document.getElementById('malla');
-  malla.innerHTML='';
-  cardEls={};
-
+  malla.innerHTML='';cardEls={};
   semOrder.forEach(s=>{
-    const col=document.createElement('div');
-    col.className='col';
-    col.dataset.sem=s;
-    const hdr=document.createElement('div');
-    hdr.className='colhdr';
+    const col=document.createElement('div');col.className='col';col.dataset.sem=s;
+    const hdr=document.createElement('div');hdr.className='colhdr';
     const isNum=!isNaN(parseFloat(s));
-    hdr.innerHTML=`<span class="colhdr-num">${s}</span><span>${isNum?'Semestre':''}</span>`;
+    hdr.innerHTML=`<span class="colhdr-n">${s}</span><span>${isNum?'Semestre':''}</span>`;
     col.appendChild(hdr);
-    const cards=document.createElement('div');
-    cards.className='cards';
+    const cards=document.createElement('div');cards.className='cards';
     (semMap[s]||[]).forEach(m=>cards.appendChild(mkCard(m)));
-    col.appendChild(cards);
-    malla.appendChild(col);
+    col.appendChild(cards);malla.appendChild(col);
   });
 }
 
+/* ═══════════════════════════════════════
+   OPTATIVAS
+═══════════════════════════════════════ */
 function renderOptativas(){
-  const sec=document.getElementById('opts');
-  sec.innerHTML='';
+  const sec=document.getElementById('opts');sec.innerHTML='';
   if(!OPTATIVAS.length)return;
-  const t=document.createElement('div');t.className='ot';t.textContent='Materias Optativas';
-  sec.appendChild(t);
+  const t=document.createElement('div');t.className='ot';t.textContent='Materias Optativas';sec.appendChild(t);
   const g=document.createElement('div');g.className='og';
   OPTATIVAS.forEach(og=>{
     const grp=document.createElement('div');grp.className='ogg';
     grp.innerHTML=`<div class="ogt">${og.grupo}</div>`;
     const oc=document.createElement('div');oc.className='ogc';
-    og.materias.forEach(m=>oc.appendChild(mkCard(m,'148px','78px')));
-    grp.appendChild(oc);
-    g.appendChild(grp);
+    og.materias.forEach(m=>oc.appendChild(mkCard(m,'146px','76px')));
+    grp.appendChild(oc);g.appendChild(grp);
   });
   sec.appendChild(g);
 }
 
-/* ════════════════════════════════════════════
-   LÓGICA DE FLECHAS (ARROWS)
-════════════════════════════════════════════ */
-const CORRIDOR_GAP=18;
-const CORNER_R=5;
-const LANE_STEP=2.8;
+/* ═══════════════════════════════════════
+   ARROWS — CORRIDOR ORTHOGONAL ROUTER
+   
+   Cada flecha:
+   1. Sale del borde DERECHO de la tarjeta origen
+   2. Viaja HORIZONTAL hasta el pasillo (18px gap)
+      entre la columna origen y la siguiente
+   3. Viaja VERTICAL dentro del pasillo
+   4. Llega HORIZONTAL al borde IZQUIERDO del destino
+   
+   El segmento vertical NUNCA cruza el área de
+   ninguna tarjeta. Siempre ocurre en el gap.
+   
+   Posiciones: offsetLeft/offsetTop → inmune al scroll.
+   Esquinas: Quadratic Bézier (radio 5px).
+═══════════════════════════════════════ */
+const CGAP=18;   /* gap entre columnas (padding-right de .cards) */
+const CR=5;      /* radio de esquina */
+const LSTEP=2.5; /* separación entre líneas paralelas en un corredor */
 
-function relPos(el){
+/* posición de el relativa a #mallaWrap */
+function pos(el){
   const base=document.getElementById('mallaWrap');
   let x=0,y=0,cur=el;
   while(cur&&cur!==base){x+=cur.offsetLeft;y+=cur.offsetTop;cur=cur.offsetParent;}
   return{x,y,w:el.offsetWidth,h:el.offsetHeight};
 }
 
-function getCardW(){
-  const c=document.querySelector('.col .card');
-  return c?c.offsetWidth:168;
-}
-
-function corridorCenterX(ci, cardW){
-  const cols=[...document.querySelectorAll('#malla .col')];
-  if(ci>=cols.length)return 0;
+/* offsetLeft de cada .col relativa a #mallaWrap */
+function colOffsets(){
   const base=document.getElementById('mallaWrap');
-  let cx=0,cur=cols[ci];
-  while(cur&&cur!==base){cx+=cur.offsetLeft;cur=cur.offsetParent;}
-  return cx+cardW+(CORRIDOR_GAP/2);
+  return[...document.querySelectorAll('#malla .col')].map(col=>{
+    let x=0,cur=col;
+    while(cur&&cur!==base){x+=cur.offsetLeft;cur=cur.offsetParent;}
+    return x;
+  });
 }
 
-function colIdxOf(clave){
+/* índice de semestre de una clave */
+function semIdx(clave){
   const m=byKey[clave];if(!m)return 0;
   return semOrder.indexOf(m.sem);
 }
 
-function roundedPath(pts){
-  if(pts.length<2)return'';
+/* construir path ortogonal con esquinas redondeadas */
+function rndPath(pts){
+  if(!pts||pts.length<2)return'';
+  function r(n){return Math.round(n*10)/10;}
   let d=`M${r(pts[0].x)},${r(pts[0].y)}`;
   for(let i=1;i<pts.length;i++){
-    const prev=pts[i-1],curr=pts[i],next=pts[i+1];
-    if(!next){d+=` L${r(curr.x)},${r(curr.y)}`;continue;}
-    const dx1=curr.x-prev.x, dy1=curr.y-prev.y;
-    const dx2=next.x-curr.x, dy2=next.y-curr.y;
+    const pv=pts[i-1],cu=pts[i],nx=pts[i+1];
+    if(!nx){d+=` L${r(cu.x)},${r(cu.y)}`;continue;}
+    const dx1=cu.x-pv.x,dy1=cu.y-pv.y;
+    const dx2=nx.x-cu.x,dy2=nx.y-cu.y;
     const l1=Math.abs(dx1)+Math.abs(dy1);
     const l2=Math.abs(dx2)+Math.abs(dy2);
-    if(l1<1||l2<1){d+=` L${r(curr.x)},${r(curr.y)}`;continue;}
-    const rv=Math.min(CORNER_R,l1/2,l2/2);
-    const ax=curr.x-(dx1/l1)*rv, ay=curr.y-(dy1/l1)*rv;
-    const bx=curr.x+(dx2/l2)*rv, by=curr.y+(dy2/l2)*rv;
-    d+=` L${r(ax)},${r(ay)} Q${r(curr.x)},${r(curr.y)} ${r(bx)},${r(by)}`;
+    if(l1<0.5||l2<0.5){d+=` L${r(cu.x)},${r(cu.y)}`;continue;}
+    const rv=Math.min(CR,l1/2,l2/2);
+    const ax=cu.x-(dx1/l1)*rv,ay=cu.y-(dy1/l1)*rv;
+    const bx=cu.x+(dx2/l2)*rv,by=cu.y+(dy2/l2)*rv;
+    d+=` L${r(ax)},${r(ay)} Q${r(cu.x)},${r(cu.y)} ${r(bx)},${r(by)}`;
   }
   return d;
 }
-function r(n){return Math.round(n*10)/10;}
 
+/* asignación de carriles por corredor para evitar solapamiento */
 let laneMap={};
 function getLane(ci,y1,y2){
   if(!laneMap[ci])laneMap[ci]=[];
-  const yA=Math.min(y1,y2),yB=Math.max(y1,y2);
-  let lane=0;
+  const ya=Math.min(y1,y2),yb=Math.max(y1,y2);
+  let l=0;
   while(true){
-    const conflict=laneMap[ci].filter(e=>e.l===lane).some(e=>!(e.b<yA-1||e.a>yB+1));
-    if(!conflict)break;
-    lane++;
+    const conflict=laneMap[ci].filter(e=>e.l===l).some(e=>!(e.b<ya-1||e.a>yb+1));
+    if(!conflict)break;l++;
   }
-  laneMap[ci].push({l:lane,a:yA,b:yB});
-  return lane;
+  laneMap[ci].push({l,a:ya,b:yb});return l;
 }
 
-function idleColor(){return getComputedStyle(document.documentElement).getPropertyValue('--aid').trim()||'rgba(255,255,255,.42)';}
+function idleColor(){return getComputedStyle(document.documentElement).getPropertyValue('--aid').trim()||'rgba(255,255,255,.45)';}
 
 function mkMarker(ns,id,fill){
   const mk=document.createElementNS(ns,'marker');
-  mk.setAttribute('id',id);
-  mk.setAttribute('markerWidth','5');mk.setAttribute('markerHeight','5');
-  mk.setAttribute('refX','4.5');mk.setAttribute('refY','2.5');
-  mk.setAttribute('orient','auto');
+  mk.setAttribute('id',id);mk.setAttribute('markerWidth','5');mk.setAttribute('markerHeight','5');
+  mk.setAttribute('refX','4.5');mk.setAttribute('refY','2.5');mk.setAttribute('orient','auto');
   const p=document.createElementNS(ns,'polygon');
-  p.setAttribute('points','0 0.5, 4.5 2.5, 0 4.5');
-  p.setAttribute('fill',fill);
-  mk.appendChild(p);
-  return mk;
+  p.setAttribute('points','0 0.5, 4.5 2.5, 0 4.5');p.setAttribute('fill',fill);
+  mk.appendChild(p);return mk;
 }
 
 function renderArrows(){
   const ns='http://www.w3.org/2000/svg';
   const svg=document.getElementById('arrowsvg');
   svg.innerHTML='';
+
+  /* verificar que el DOM esté listo */
   const firstCard=document.querySelector('#malla .card');
   if(!firstCard||!firstCard.offsetWidth)return;
 
-  const cardW=getCardW();
   const idle=idleColor();
-
   const defs=document.createElementNS(ns,'defs');
   defs.appendChild(mkMarker(ns,'mi',idle));
   defs.appendChild(mkMarker(ns,'mp','#22c55e'));
   defs.appendChild(mkMarker(ns,'ms','#f59e0b'));
   svg.appendChild(defs);
 
+  /* dimensionar SVG al contenido completo */
   const wrap=document.getElementById('mallaWrap');
   svg.setAttribute('width',wrap.scrollWidth);
   svg.setAttribute('height',wrap.scrollHeight);
+
+  /* medir ancho real de tarjeta y posiciones de columnas */
+  const cardW=firstCard.offsetWidth;
+  const offs=colOffsets();
 
   laneMap={};
 
@@ -595,56 +600,60 @@ function renderArrows(){
     const te=document.getElementById('c-'+tgt);
     if(!se||!te)return;
 
-    const sp=relPos(se),tp=relPos(te);
+    const sp=pos(se),tp=pos(te);
     if(!sp.w||!tp.w)return;
 
-    const x1=sp.x+sp.w, y1=sp.y+sp.h/2;
-    const x2=tp.x, y2=tp.y+tp.h/2;
+    const x1=sp.x+sp.w;       /* borde derecho origen */
+    const y1=sp.y+sp.h/2;     /* centro vertical origen */
+    const x2=tp.x;            /* borde izquierdo destino */
+    const y2=tp.y+tp.h/2;     /* centro vertical destino */
 
-    const ci=Math.max(0,Math.min(colIdxOf(src),semOrder.length-2));
-    const lane=getLane(ci,y1,y2);
-    const corrX=corridorCenterX(ci,cardW)+(lane*LANE_STEP)-(Math.min(lane,2)*LANE_STEP*0.5);
+    /* corredor: gap a la derecha de la columna origen */
+    const si=Math.max(0,Math.min(semIdx(src),offs.length-2));
+    const corrBase=offs[si]+cardW+(CGAP/2);
+    const lane=getLane(si,y1,y2);
+    /* distribuir carriles simétricamente alrededor del centro del gap */
+    const corrX=corrBase+(lane%2===0?1:-1)*Math.ceil(lane/2)*LSTEP;
 
-    const pts=[{x:x1, y:y1},{x:corrX, y:y1},{x:corrX, y:y2},{x:x2, y:y2}];
-    const d=roundedPath(pts);
+    const pts=[{x:x1,y:y1},{x:corrX,y:y1},{x:corrX,y:y2},{x:x2,y:y2}];
+    const d=rndPath(pts);
     if(!d)return;
 
     const path=document.createElementNS(ns,'path');
-    path.setAttribute('d',d);
-    path.setAttribute('fill','none');
-    path.setAttribute('stroke',idle);
-    path.setAttribute('stroke-width','1.6');
+    path.setAttribute('d',d);path.setAttribute('fill','none');
+    path.setAttribute('stroke',idle);path.setAttribute('stroke-width','1.6');
     path.setAttribute('marker-end','url(#mi)');
-    path.dataset.src=src;
-    path.dataset.tgt=tgt;
+    path.dataset.src=src;path.dataset.tgt=tgt;
     svg.appendChild(path);
   });
 }
 
-function animArrow(p,color,marker){
-  p.setAttribute('stroke',color);
-  p.setAttribute('stroke-width','2.2');
+/* ═══════════════════════════════════════
+   HOVER — marching ants
+═══════════════════════════════════════ */
+function animArrow(p,stroke,marker){
+  p.setAttribute('stroke',stroke);p.setAttribute('stroke-width','2.2');
   p.setAttribute('marker-end',`url(#${marker})`);
   p.setAttribute('stroke-dasharray','10 6');
-  p.style.animation='march 1.4s linear infinite';
+  p.style.animation='march 1.5s linear infinite';
+  p.style.opacity='1';
 }
-
 function resetArrow(p){
   const idle=idleColor();
-  p.setAttribute('stroke',idle);
-  p.setAttribute('stroke-width','1.6');
+  p.setAttribute('stroke',idle);p.setAttribute('stroke-width','1.6');
   p.setAttribute('marker-end','url(#mi)');
   p.setAttribute('stroke-dasharray','none');
-  p.style.animation='';
-  p.style.opacity='1';
+  p.style.animation='';p.style.opacity='1';
+}
+function dimArrow(p){
+  resetArrow(p);p.style.opacity='0.07';
 }
 
 function onHover(k){
   document.querySelectorAll('#arrowsvg path').forEach(p=>{
     const rel=p.dataset.src===k||p.dataset.tgt===k;
-    p.style.opacity=rel?'1':'0.08';
-    if(!rel){resetArrow(p);return;}
-    if(p.dataset.src===k) animArrow(p,'#f59e0b','ms');
+    if(!rel){dimArrow(p);return;}
+    if(p.dataset.src===k)animArrow(p,'#f59e0b','ms');
     else animArrow(p,'#22c55e','mp');
   });
   Object.values(cardEls).forEach(el=>{
@@ -660,21 +669,19 @@ function onHover(k){
   });
 }
 
-function clearHighlights(){
-  document.querySelectorAll('#arrowsvg path').forEach(p=>{resetArrow(p);});
+function clearAll(){
+  document.querySelectorAll('#arrowsvg path').forEach(resetArrow);
   Object.values(cardEls).forEach(el=>el.classList.remove('dim','hl','pre','suc'));
 }
 
 function restorePanel(){
   if(!activeCard)return;
   const m=byKey[activeCard];if(!m)return;
-  const col=colorFor(m.linea);
-  const idle=idleColor();
+  const c=col(m.linea);const idle=idleColor();
   document.querySelectorAll('#arrowsvg path').forEach(p=>{
+    p.style.animation='';p.setAttribute('stroke-dasharray','none');p.style.opacity='1';
     const rel=p.dataset.src===activeCard||p.dataset.tgt===activeCard;
-    p.style.opacity='1';
-    p.style.animation='';p.setAttribute('stroke-dasharray','none');
-    p.setAttribute('stroke',rel?col:idle);
+    p.setAttribute('stroke',rel?c:idle);
     p.setAttribute('stroke-width',rel?'2.2':'1.6');
     p.setAttribute('marker-end',`url(#${rel?(p.dataset.src===activeCard?'ms':'mp'):'mi'})`);
   });
@@ -682,26 +689,33 @@ function restorePanel(){
 
 function onLeave(){
   if(activeCard){restorePanel();return;}
-  clearHighlights();
+  clearAll();
 }
 
+/* ═══════════════════════════════════════
+   FILTER
+═══════════════════════════════════════ */
 function applyFilter(){
   const q=searchQ.toLowerCase();
   Object.values(cardEls).forEach(el=>{
-    const k=el.id.replace('c-','');
-    const m=byKey[k];if(!m)return;
+    const k=el.id.replace('c-','');const m=byKey[k];if(!m)return;
     const ml=activeFilters.size===0||activeFilters.has(m.linea);
     const mq=!q||m.nombre.toLowerCase().includes(q)||m.clave.toLowerCase().includes(q);
     el.classList.toggle('dim',!(ml&&mq));
   });
 }
 
-/* ════════════════════════════════════════════
-   PANEL LATERAL (Detalles ampliados)
-════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   PANEL LATERAL — campos ampliados
+═══════════════════════════════════════ */
+function pfield(label,val){
+  if(!val&&val!==0)return'';
+  return`<div class="pfield"><div class="pflabel">${label}</div><div class="pfval">${val}</div></div>`;
+}
+
 function openPanel(m){
   activeCard=m.clave;
-  const col=colorFor(m.linea);
+  const c=col(m.linea);
   const pres=(preOf[m.clave]||[]).map(k=>byKey[k]).filter(Boolean);
   const sucs=(sucOf[m.clave]||[]).map(k=>byKey[k]).filter(Boolean);
 
@@ -714,48 +728,57 @@ function openPanel(m){
   });
   restorePanel();
 
+  /* stats row: CR, UC, Horas */
+  const statsRow=`<div class="pgrid">
+    ${m.cr?`<div class="pstat"><div class="psn">${m.cr}</div><div class="psl">Créditos</div></div>`:''}
+    ${m.uc?`<div class="pstat"><div class="psn">${m.uc}</div><div class="psl">Unid. cobro</div></div>`:''}
+    ${m.horas?`<div class="pstat"><div class="psn">${m.horas}</div><div class="psl">Horas</div></div>`:''}
+  </div>`;
+
+  /* prereqs con nombres */
+  const preBlock=pres.length?`<div>
+    <div class="psec">Prerequisitos (${pres.length})</div>
+    ${pres.map(p=>`<div class="rc" style="border-left-color:#22c55e" onclick="window._op(byKey['${p.clave}'])">
+      <div class="rn">${p.nombre}</div><div class="rk">${p.clave} · Sem. ${p.sem}</div></div>`).join('')}
+  </div>`:'';
+
+  const sucBlock=sucs.length?`<div>
+    <div class="psec">Da acceso a (${sucs.length})</div>
+    ${sucs.map(s=>`<div class="rc" style="border-left-color:#f59e0b" onclick="window._op(byKey['${s.clave}'])">
+      <div class="rn">${s.nombre}</div><div class="rk">${s.clave} · Sem. ${s.sem}</div></div>`).join('')}
+  </div>`:'';
+
   document.getElementById('pc').innerHTML=`
-    <div class="pcbar" style="background:${col}"></div>
-    <div class="pck">${m.clave} · Sem. ${m.sem}</div>
+    <div class="pcbar" style="background:${c}"></div>
+    <div class="pck">${m.clave} · Semestre ${m.sem}</div>
     <div class="pname">${m.nombre}</div>
-    <div class="lb" style="background:${col}22;color:${col}">${m.linea}</div>
-    
-    <div class="pgrid" style="margin-top:10px;">
-      <div class="pstat"><div class="psn">${m.cr}</div><div class="psl">Créditos</div></div>
-      <div class="pstat"><div class="psn">${m.uc}</div><div class="psl">U. de Cobro</div></div>
-      <div class="pstat"><div class="psn">${m.horas}</div><div class="psl">Horas</div></div>
-      <div class="pstat"><div class="psn" style="font-size:13px;word-break:break-word">${m.tipo}</div><div class="psl">Tipo</div></div>
+    <div class="plb" style="background:${c}22;color:${c}">${m.linea}</div>
+    ${statsRow}
+    <div class="pfields">
+      ${pfield('Plan',m.plan)}
+      ${pfield('Tipo',m.tipo)}
+      ${pfield('Equivalencia',m.equivalencia)}
+      ${pfield('Prerrequisitos (texto)',m.prerrequisitos_raw||'')}
+      ${pfield('Notas',m.notas)}
     </div>
-
-    <div class="pdesc" style="margin-top:10px;">
-      <div class="row"><strong>Plan:</strong> ${m.plan}</div>
-      <div class="row"><strong>Equivalencia:</strong> ${m.equivalencia}</div>
-      <div class="row"><strong>Notas:</strong> ${m.notas}</div>
-    </div>
-
-    ${pres.length?`<div>
-      <div class="psec">Prerrequisitos (${pres.length})</div>
-      ${pres.map(p=>`<div class="rc" style="border-left-color:#22c55e" onclick="openPanel(byKey['${p.clave}'])">
-        <div class="rn">${p.nombre}</div><div class="rk">${p.clave} · Sem. ${p.sem}</div></div>`).join('')}
-    </div>`:''}
-    ${sucs.length?`<div>
-      <div class="psec">Da acceso a (${sucs.length})</div>
-      ${sucs.map(s=>`<div class="rc" style="border-left-color:#f59e0b" onclick="openPanel(byKey['${s.clave}'])">
-        <div class="rn">${s.nombre}</div><div class="rk">${s.clave} · Sem. ${s.sem}</div></div>`).join('')}
-    </div>`:''}
-    ${!pres.length&&!sucs.length?'<p style="color:var(--tx2);font-size:12px;text-align:center;padding:18px 0">Sin prerrequisitos ni subsecuentes</p>':''}`;
+    ${preBlock}
+    ${sucBlock}
+    ${!pres.length&&!sucs.length&&!preBlock?'':''}`;
 
   document.getElementById('pn').classList.add('open');
   document.getElementById('ov').classList.add('open');
 }
+window._op=openPanel;  /* exponer para onclick en innerHTML */
 
 function closePanel(){
   document.getElementById('pn').classList.remove('open');
   document.getElementById('ov').classList.remove('open');
-  activeCard=null;
-  clearHighlights();
+  activeCard=null;clearAll();
 }
 
+/* ═══════════════════════════════════════
+   TEMA
+═══════════════════════════════════════ */
 document.getElementById('themeBtn').onclick=()=>{
   isDark=!isDark;
   document.documentElement.setAttribute('data-theme',isDark?'dark':'light');
@@ -763,6 +786,9 @@ document.getElementById('themeBtn').onclick=()=>{
   setTimeout(renderArrows,30);
 };
 
+/* ═══════════════════════════════════════
+   PDF
+═══════════════════════════════════════ */
 document.getElementById('pdfBtn').onclick=async()=>{
   closePanel();
   document.getElementById('pdfLabel').textContent='Generando…';
@@ -771,13 +797,10 @@ document.getElementById('pdfBtn').onclick=async()=>{
   const el=document.getElementById('mallaWrap');
   try{
     const bg=isDark?'#0f1117':'#eef0f5';
-    const cv=await html2canvas(el,{
-      scale:1.8,useCORS:true,backgroundColor:bg,logging:false,
-      width:el.scrollWidth,height:el.scrollHeight,
-    });
+    const cv=await html2canvas(el,{scale:1.8,useCORS:true,backgroundColor:bg,logging:false,width:el.scrollWidth,height:el.scrollHeight});
     const img=cv.toDataURL('image/png');
     const{jsPDF}=window.jspdf;
-    const mw=cv.width/1.8/3.7795+12, mh=cv.height/1.8/3.7795+12;
+    const mw=cv.width/1.8/3.7795+12,mh=cv.height/1.8/3.7795+12;
     const doc=new jsPDF({orientation:'landscape',unit:'mm',format:[mw,mh]});
     doc.addImage(img,'PNG',6,6,mw-12,mh-12);
     doc.save('plan_estudios.pdf');
@@ -786,64 +809,102 @@ document.getElementById('pdfBtn').onclick=async()=>{
   document.getElementById('pdfBtn').style.opacity='1';
 };
 
-/* ════════════════════════════════════════════
-   CARGA PRINCIPAL (Google Sheets)
-════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   CARGA DESDE GOOGLE SHEETS
+   
+   Columnas esperadas en hoja "Materias":
+   Clave, Nombre, Semestre, CR (o Creditos),
+   UC, Horas, Línea (o Linea), Plan, Tipo,
+   Equivalencia, Prerrequisitos, Notas
+   
+   Columnas esperadas en hoja "Seriaciones":
+   Clave_Prerequisito, Clave_Siguiente
+   (o Prerequisito / Siguiente)
+   
+   Si "Prerrequisitos" en Materias contiene
+   claves separadas por coma/punto y coma,
+   se generan las seriaciones automáticamente
+   y se combinan con la hoja Seriaciones.
+═══════════════════════════════════════ */
+function parsePrereqs(raw){
+  if(!raw)return[];
+  /* separar por coma, punto y coma, o "y" */
+  return raw.split(/[,;\/]+/).map(s=>s.trim()).filter(s=>s&&s.length>2);
+}
+
+function getField(row,...keys){
+  for(const k of keys){
+    if(row[k]!==undefined&&row[k]!=='')return row[k];
+  }
+  return'';
+}
+
 async function loadFromUrl(rawUrl){
-  const sheetId=extractSheetId(rawUrl);
-  if(!sheetId){showError('URL inválida — debe ser un enlace válido de Google Sheets');return;}
+  const id=extractId(rawUrl);
+  if(!id){showError('URL inválida — debe ser un enlace de Google Sheets.');return;}
+
   colorMap={};colorIdx=0;
   activeFilters.clear();activeCard=null;searchQ='';
 
-  showLoader('Cargando plan de estudios...');
+  setLoader('Cargando materias…');
   try{
-    const mrows=await fetchSheet(sheetId,'Materias');
-    
+    /* ── Materias ── */
+    const mrows=await fetchSheet(id,'Materias');
     MATERIAS=mrows.map(r=>({
-      clave:  (r['Clave']||r['clave']||'').trim(),
-      nombre: (r['Nombre']||r['nombre']||'').trim(),
-      sem:    (r['Semestre']||r['semestre']||'').trim(),
-      cr:     (r['Creditos']||r['Créditos']||r['creditos']||r['CR']||'5'),
-      uc:     (r['UC']||r['uc']||'5'),
-      linea:  (r['Línea']||r['Linea']||r['Linea_Curricular']||r['linea']||'Sin línea').trim(),
-      horas:  (r['Horas']||r['horas']||r['Hrs']||'-').trim(),
-      plan:   (r['Plan']||r['plan']||'-').trim(),
-      equivalencia: (r['Equivalencia']||r['equivalencia']||'-').trim(),
-      tipo:   (r['Tipo']||r['tipo']||'-').trim(),
-      notas:  (r['Notas']||r['notas']||'-').trim(),
-      prereqsRaw: (r['Prerrequisitos']||r['Prerrequisito']||r['prerrequisitos']||r['prerequisito']||'').trim()
+      clave:       getField(r,'Clave','clave','CLAVE'),
+      nombre:      getField(r,'Nombre','nombre','NOMBRE'),
+      sem:         getField(r,'Semestre','semestre','SEM','Sem'),
+      cr:          getField(r,'CR','Creditos','Créditos','creditos','cr'),
+      uc:          getField(r,'UC','uc','Unidades_Cobro'),
+      horas:       getField(r,'Horas','horas','HORAS'),
+      linea:       getField(r,'Línea','Linea','linea','LINEA','Area','Área','area'),
+      plan:        getField(r,'Plan','plan','PLAN'),
+      tipo:        getField(r,'Tipo','tipo','TIPO'),
+      equivalencia:getField(r,'Equivalencia','equivalencia'),
+      prerrequisitos_raw:getField(r,'Prerrequisitos','prerrequisitos','Prerequisitos','prerequisitos'),
+      notas:       getField(r,'Notas','notas','NOTAS','Nota','nota'),
     })).filter(m=>m.clave&&m.nombre);
 
-    /* Generar seriaciones dinámicamente desde la columna Prerrequisitos */
-    SERIACIONES = [];
-    MATERIAS.forEach(m => {
-      if(m.prereqsRaw && m.prereqsRaw !== '-') {
-        // Separamos por comas o punto y coma en caso de que existan múltiples prerrequisitos.
-        const reqs = m.prereqsRaw.split(/[,;]/).map(s => s.trim()).filter(s => s);
-        reqs.forEach(req => SERIACIONES.push([req, m.clave]));
-      }
-    });
-
-    /* Opcional: Intentar cargar la hoja extra de Seriaciones si existe por retrocompatibilidad */
+    /* ── Seriaciones desde hoja Seriaciones ── */
+    let serFromSheet=[];
     try{
-      const srows = await fetchSheet(sheetId, 'Seriaciones');
-      srows.forEach(r => {
-        const a = (r['Clave_Prerequisito']||r['Prerequisito']||r['prerequisito']||'').trim();
-        const b = (r['Clave_Siguiente']||r['Siguiente']||r['siguiente']||'').trim();
-        if(a && b) SERIACIONES.push([a, b]);
-      });
-    } catch(e) {
-      // Ignorar de forma silenciosa, ya que estamos sacándolos de la columna "Prerrequisitos".
+      const srows=await fetchSheet(id,'Seriaciones');
+      setLoader('Cargando seriaciones…');
+      serFromSheet=srows.map(r=>[
+        getField(r,'Clave_Prerequisito','Prerequisito','prerequisito','clave_prerequisito'),
+        getField(r,'Clave_Siguiente','Siguiente','siguiente','clave_siguiente'),
+      ]).filter(([a,b])=>a&&b);
+    }catch(e){
+      /* hoja Seriaciones no existe — no es error fatal,
+         las seriaciones vendrán de la columna Prerrequisitos */
+      console.warn('Hoja Seriaciones no encontrada, usando columna Prerrequisitos');
     }
 
+    /* ── Seriaciones desde columna Prerrequisitos en Materias ── */
+    const serFromCol=[];
+    MATERIAS.forEach(m=>{
+      parsePrereqs(m.prerrequisitos_raw).forEach(pre=>{
+        serFromCol.push([pre,m.clave]);
+      });
+    });
+
+    /* combinar ambas fuentes (sin duplicados) */
+    const serSet=new Set([...serFromSheet,...serFromCol].map(([a,b])=>`${a}→${b}`));
+    SERIACIONES=[...serSet].map(s=>{const[a,b]=s.split('→');return[a,b];})
+      /* filtrar pares donde ambas claves existen en MATERIAS */
+      .filter(([a,b])=>MATERIAS.find(m=>m.clave===a)&&MATERIAS.find(m=>m.clave===b));
+
+    /* ── Optativas ── */
     const opts=MATERIAS.filter(m=>m.sem.toLowerCase()==='optativa');
     const og={};
     opts.forEach(m=>{if(!og[m.linea])og[m.linea]=[];og[m.linea].push(m);});
     OPTATIVAS=Object.entries(og).map(([g,ms])=>({grupo:g,materias:ms}));
 
-    const title = mrows[0]?.['Plan'] || mrows[0]?.['plan'] || 'Ingeniería en Ciencia de Datos';
-    const institution = mrows[0]?.['Institucion'] || mrows[0]?.['Institución'] || '';
-    document.getElementById('planTitle').textContent=title;
+    /* ── Título desde metadata ── */
+    const meta=mrows[0]||{};
+    const planTitle=getField(meta,'Plan_Nombre','PlanNombre','Programa','programa')||'Plan de Estudios';
+    const institution=getField(meta,'Institucion','Institución','Universidad','')||'';
+    document.getElementById('planTitle').textContent=planTitle;
     document.getElementById('planSubtitle').textContent=institution;
 
     hideLoader();
@@ -853,46 +914,46 @@ async function loadFromUrl(rawUrl){
   }
 }
 
+/* ═══════════════════════════════════════
+   BOOT
+═══════════════════════════════════════ */
 function boot(){
   buildLookups();
-  renderStats();
-  renderChips();
-  renderLegend();
-  renderMalla();
-  renderOptativas();
+  renderStats();renderChips();renderLegend();renderMalla();renderOptativas();
 
+  /* Triple intento para garantizar que el DOM tenga layout antes de dibujar flechas */
   requestAnimationFrame(()=>{
     requestAnimationFrame(()=>{
       renderArrows();
-      setTimeout(renderArrows, 200);
-      setTimeout(renderArrows, 600);
+      setTimeout(renderArrows,250);
+      setTimeout(renderArrows,700);
     });
   });
 }
 
+/* ═══════════════════════════════════════
+   EVENTOS
+═══════════════════════════════════════ */
 document.getElementById('loadBtn').onclick=()=>{
-  const url=document.getElementById('sheetUrl').value.trim();
-  if(url)loadFromUrl(url);
+  const u=document.getElementById('sheetUrl').value.trim();
+  if(u)loadFromUrl(u);
 };
 document.getElementById('sheetUrl').addEventListener('keydown',e=>{
   if(e.key==='Enter')document.getElementById('loadBtn').click();
 });
-document.getElementById('srch').addEventListener('input',e=>{
-  searchQ=e.target.value;applyFilter();
-});
+document.getElementById('srch').addEventListener('input',e=>{searchQ=e.target.value;applyFilter();});
 document.getElementById('xb').onclick=closePanel;
 document.getElementById('ov').onclick=closePanel;
-window.addEventListener('resize',()=>{renderArrows();});
-document.getElementById('sc').addEventListener('scroll',()=>{renderArrows();});
-
+window.addEventListener('resize',renderArrows);
+document.getElementById('sc').addEventListener('scroll',renderArrows);
 window.byKey=byKey;
-window.openPanel=openPanel;
 
-/* ════════════════════════════════════════════
-   AUTO-CARGA al iniciar
-════════════════════════════════════════════ */
-const DEFAULT_URL='https://docs.google.com/spreadsheets/d/1j1OW22HqY01vJU-uOvIJRFqA59l412xDzKnvknjqJWc/edit?usp=sharing';
-loadFromUrl(DEFAULT_URL);
+/* ═══════════════════════════════════════
+   AUTO-CARGA
+═══════════════════════════════════════ */
+const DEFAULT='https://docs.google.com/spreadsheets/d/1j1OW22HqY01vJU-uOvIJRFqA59l412xDzKnvknjqJWc/edit?usp=sharing';
+document.getElementById('sheetUrl').value=DEFAULT;
+loadFromUrl(DEFAULT);
 </script>
 </body>
 </html>
